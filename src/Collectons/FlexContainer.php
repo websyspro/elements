@@ -17,6 +17,7 @@ extends AbstractElement
     $this->cssList   = DataList::create([])->merge([
       "flex-direction" => "{$flexDirection->value}",
       "gap" => "{$flexGap}px",
+      "display" => "flex",
       "height" => "100%",
       "width" => "100%"
     ]);

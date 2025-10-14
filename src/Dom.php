@@ -12,48 +12,48 @@ use Websyspro\Elements\Collectons\Title;
 
 class Dom
 {
-  public static function DocType(
+  public static function docType(
     string|array|null $classes = [],
     string|array|null $childs = []
   ): AbstractElement {
     return new DocType($classes, $childs);
   }
 
-  public static function Html(
+  public static function html(
     string|array|null $classes = [],
     string|array|null $childs = []
   ): AbstractElement {
     return new Html($classes, $childs);
   }
 
-  public static function Head(
+  public static function head(
     string|array|null $classes = [],
     string|array|null $childs = []
   ): AbstractElement {
     return new Head($classes, $childs);
   }
 
-  public static function Title(
+  public static function title(
     string|array|null $classes = [],
     string|array|null $childs = []
   ): AbstractElement {
     return new Title($classes, $childs);
   }
   
-  public static function Meta(
+  public static function meta(
     string|array|null $data = []
   ): AbstractElement {
     return new Meta($data);
   }
  
-  public static function Body(
+  public static function body(
     string|array|null $classes = [],
     string|array|null $childs = []
   ): AbstractElement {
     return new Body($classes, $childs);
   }
 
-  public static function Div(
+  public static function div(
     string|array|null $classes = [],
     string|array|null $childs = []
   ): AbstractElement {

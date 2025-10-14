@@ -88,11 +88,13 @@ class AbstractElement
       return ConstHtmls::emptyHtml->value;
     }
 
-    return $this->cssList->mapper(
+    $csss = $this->cssList->mapper(
       fn(string $value, string $key) => (
         "{$key}:{$value}"
       )
-    )->join(";");    
+    )->join(";");
+
+    return "style=\"{$csss}\""; 
   }
 
   private function getEvents(

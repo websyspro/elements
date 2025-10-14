@@ -23,8 +23,8 @@ class AbstractElement
     string|array|null $classes = [],
     string|array|null $childs = []
   ){
-    $this->classList = DataList::create($classes);
-    $this->childList = DataList::create($childs);
+    $this->classList = DataList::create([])->merge($classes);
+    $this->childList = DataList::create([])->merge($childs);
   }
 
   public function css(
@@ -34,7 +34,7 @@ class AbstractElement
       $this->cssList = DataList::create([]);
     }
 
-    $this->cssList->add($css);
+    $this->cssList->merge($css);
     return $this; 
   }
 
@@ -45,7 +45,7 @@ class AbstractElement
       $this->dataList = DataList::create([]);
     }
 
-    $this->dataList->add($data);
+    $this->dataList->merge($data);
     return $this; 
   }
 
@@ -56,7 +56,7 @@ class AbstractElement
       $this->eventList = DataList::create([]);
     }
 
-    $this->dataList->add($event);
+    $this->dataList->merge($event);
     return $this;
   }
 
@@ -90,7 +90,7 @@ class AbstractElement
 
     return $this->cssList->mapper(
       fn(string $value, string $key) => (
-        "{$key}: {$value}"
+        "{$key}:{$value}"
       )
     )->join(";");    
   }

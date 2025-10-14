@@ -8,12 +8,4 @@ class Html
 extends AbstractElement
 {
   public string $tagElement = "div";
-
-  public function __construct(
-    string|array|null $data = [],
-    string|array|null $childs = []
-  ){
-    $this->dataList = DataList::create($data);
-    $this->childList = DataList::create($childs);
-  }  
 }

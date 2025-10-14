@@ -13,6 +13,6 @@ extends AbstractElement
   public function __construct(
     string|array|null $data = []
   ){
-    $this->dataList = DataList::create($data);
+    $this->dataList = DataList::create([])->add($data);
   }  
 }

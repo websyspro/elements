@@ -7,10 +7,12 @@ use Websyspro\Elements\Collectons\Body;
 use Websyspro\Elements\Collectons\Container;
 use Websyspro\Elements\Collectons\Div;
 use Websyspro\Elements\Collectons\DocType;
+use Websyspro\Elements\Collectons\FlexContainer;
 use Websyspro\Elements\Collectons\Head;
 use Websyspro\Elements\Collectons\Html;
 use Websyspro\Elements\Collectons\Meta;
 use Websyspro\Elements\Collectons\Title;
+use Websyspro\Elements\Enums\FlexDirection;
 
 class Dom
 {
@@ -67,5 +69,12 @@ class Dom
     string|array|null $childs = []
   ): AbstractElement {
     return new Container($classes, $childs);
+  } 
+  
+  public static function flexContainer(
+    FlexDirection $flexDirection = FlexDirection::column,
+    int $flexGap = 0
+  ): AbstractElement {
+    return new FlexContainer($flexDirection, $flexGap);
   }  
 }

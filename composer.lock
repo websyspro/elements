@@ -1,0 +1,65 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "d473aeb29f87fcff9b16b1260f869645",
+    "packages": [],
+    "packages-dev": [
+        {
+            "name": "websyspro/common",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/websyspro/common.git",
+                "reference": "bf5d2edc7fb0efbe88df9ddd55ddc40a4049b0e6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/websyspro/common/zipball/bf5d2edc7fb0efbe88df9ddd55ddc40a4049b0e6",
+                "reference": "bf5d2edc7fb0efbe88df9ddd55ddc40a4049b0e6",
+                "shasum": ""
+            },
+            "require-dev": {
+                "websyspro/entity": "dev-main"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/Methods.php"
+                ],
+                "psr-4": {
+                    "Websyspro\\Commons\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "websyspro",
+                    "email": "websyspro.services@gmail.com"
+                }
+            ],
+            "description": "Set of PHP features for use in Libraries",
+            "support": {
+                "issues": "https://github.com/websyspro/common/issues",
+                "source": "https://github.com/websyspro/common/tree/main"
+            },
+            "time": "2025-10-12T01:31:10+00:00"
+        }
+    ],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "websyspro/common": 20
+    },
+    "prefer-stable": true,
+    "prefer-lowest": false,
+    "platform": {},
+    "platform-dev": {},
+    "plugin-api-version": "2.6.0"
+}

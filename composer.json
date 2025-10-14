@@ -1,0 +1,22 @@
+{
+  "name": "websyspro/elements",
+  "description": "Set of html elements for php",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "license": "MIT",
+  "type": "library",
+  "autoload": {
+    "psr-4": {
+      "Websyspro\\Elements\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "websyspro",
+      "email": "websyspro.services@gmail.com"
+    }
+  ],
+  "require-dev": {
+    "websyspro/common": "dev-main"
+  }
+}

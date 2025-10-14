@@ -20,10 +20,10 @@ class Dom
   }
 
   public static function html(
-    string|array|null $classes = [],
+    string|array|null $data = [],
     string|array|null $childs = []
   ): AbstractElement {
-    return new Html($classes, $childs);
+    return new Html($data, $childs);
   }
 
   public static function head(

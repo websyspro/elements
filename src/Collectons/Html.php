@@ -13,7 +13,7 @@ extends AbstractElement
     string|array|null $data = [],
     string|array|null $childs = []
   ){
-    $this->dataList = DataList::create([])->add($data);
-    $this->childList = DataList::create([])->add($childs);
+    $this->dataList = DataList::create([])->merge($data);
+    $this->childList = DataList::create([])->merge($childs);
   }  
 }

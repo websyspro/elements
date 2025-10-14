@@ -4,6 +4,7 @@ namespace Websyspro\Elements;
 
 use Websyspro\Elements\Collectons\AbstractElement;
 use Websyspro\Elements\Collectons\Body;
+use Websyspro\Elements\Collectons\Div;
 use Websyspro\Elements\Collectons\DocType;
 use Websyspro\Elements\Collectons\Head;
 use Websyspro\Elements\Collectons\Html;
@@ -50,24 +51,13 @@ class Dom
     string|array|null $classes = [],
     string|array|null $childs = []
   ): AbstractElement {
-    return (new Body(
-      $classes, array_merge([
-        "<script src=\"//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js\"></script>",
-        "<script>",
-          "WebFont.load({",
-            "google: {",
-              "families: ['Roboto:100,200,300,400,500,600,700']",
-            "}",
-          "});",
-        "</script>"
-      ], $childs )
-    ))->css(["font-family" => "roboto"]);
+    return new Body($classes, $childs);;
   }
 
   public static function div(
     string|array|null $classes = [],
     string|array|null $childs = []
   ): AbstractElement {
-    return new Body($classes, $childs);
+    return new Div($classes, $childs);
   }  
 }

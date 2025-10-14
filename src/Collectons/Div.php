@@ -2,9 +2,7 @@
 
 namespace Websyspro\Elements\Collectons;
 
-use Websyspro\Commons\DataList;
-
-class Html
+class Div
 extends AbstractElement
 {
   public string $tagElement = "div";

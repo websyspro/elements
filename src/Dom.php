@@ -4,6 +4,7 @@ namespace Websyspro\Elements;
 
 use Websyspro\Elements\Collectons\AbstractElement;
 use Websyspro\Elements\Collectons\Body;
+use Websyspro\Elements\Collectons\Container;
 use Websyspro\Elements\Collectons\Div;
 use Websyspro\Elements\Collectons\DocType;
 use Websyspro\Elements\Collectons\Head;
@@ -59,5 +60,12 @@ class Dom
     string|array|null $childs = []
   ): AbstractElement {
     return new Div($classes, $childs);
+  }
+  
+  public static function container(
+    string|array|null $classes = [],
+    string|array|null $childs = []
+  ): AbstractElement {
+    return new Container($classes, $childs);
   }  
 }

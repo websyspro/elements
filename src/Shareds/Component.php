@@ -2,9 +2,9 @@
 
 namespace Websyspro\Elements\Shareds;
 
-use ReflectionClass;
 use Websyspro\Commons\DataList;
 use Websyspro\Elements\Dom;
+use ReflectionClass;
 
 class Component
 {
@@ -22,8 +22,11 @@ class Component
   private function getFilesByExt(
     string $ext
   ): string {
-    $globFind = sprintf("{$this->getBasePath()}%s*.%s", DIRECTORY_SEPARATOR, $ext);
     $contents = DataList::create([]);
+    $globFind = sprintf(
+      "{$this->getBasePath()}%s*.%s", DIRECTORY_SEPARATOR, $ext
+    );
+
 
     foreach (glob($globFind) as $file) {
       $code = trim(file_get_contents($file));

@@ -8,6 +8,7 @@ use Websyspro\Elements\Collectons\Container;
 use Websyspro\Elements\Collectons\Div;
 use Websyspro\Elements\Collectons\DocType;
 use Websyspro\Elements\Collectons\FlexContainer;
+use Websyspro\Elements\Collectons\FlexItem;
 use Websyspro\Elements\Collectons\Head;
 use Websyspro\Elements\Collectons\Html;
 use Websyspro\Elements\Collectons\Meta;
@@ -76,5 +77,12 @@ class Dom
     int $flexGap = 0
   ): AbstractElement {
     return new FlexContainer($flexDirection, $flexGap);
-  }  
+  }
+
+  public static function FlexItem(
+    int $size = 0,
+    bool $resized = true
+  ): AbstractElement {
+    return new FlexItem($size, $resized);
+  } 
 }

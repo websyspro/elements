@@ -50,16 +50,18 @@ class Dom
     string|array|null $classes = [],
     string|array|null $childs = []
   ): AbstractElement {
-    return new Body($classes, array_merge([
-      "<script src=\"//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js\"></script>",
-      "<script>",
-        "WebFont.load({",
-          "google: {",
-            "families: ['Roboto:100,200,300,400,500,600,700']",
-          "}",
-        "});",
-      "</script>"
-    ], $childs ));
+    return (new Body(
+      $classes, array_merge([
+        "<script src=\"//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js\"></script>",
+        "<script>",
+          "WebFont.load({",
+            "google: {",
+              "families: ['Roboto:100,200,300,400,500,600,700']",
+            "}",
+          "});",
+        "</script>"
+      ], $childs )
+    ))->css(["font-family" => "roboto"]);
   }
 
   public static function div(

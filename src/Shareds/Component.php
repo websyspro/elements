@@ -27,7 +27,6 @@ class Component
       "{$this->getBasePath()}%s*.%s", DIRECTORY_SEPARATOR, $ext
     );
 
-
     foreach (glob($globFind) as $file) {
       $code = trim(file_get_contents($file));
       if ($code !== '') {

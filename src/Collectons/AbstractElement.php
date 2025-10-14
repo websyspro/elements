@@ -27,6 +27,17 @@ class AbstractElement
     $this->childList = DataList::create([])->merge($childs);
   }
 
+  public function add(
+    string|array|null $childs = []
+  ): mixed {
+    if(isset($this->childList) === false){
+      $this->childList = DataList::create([]);
+    }
+
+    $this->childList->merge($childs);
+    return $this;     
+  }
+
   public function css(
     array $css = []
   ): mixed {

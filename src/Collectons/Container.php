@@ -15,7 +15,7 @@ extends AbstractElement
   ){
     $this->classList = DataList::create([])->merge($classes);
     $this->childList = DataList::create([])->merge($childs);
-    $this->cssList = DataList::create([])->merge([
+    $this->cssList   = DataList::create([])->merge([
       "height" => "100vh",
       "width" => "100vw"
     ]);

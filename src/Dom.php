@@ -50,7 +50,16 @@ class Dom
     string|array|null $classes = [],
     string|array|null $childs = []
   ): AbstractElement {
-    return new Body($classes, $childs);
+    return new Body($classes, array_merge([
+      "<script src=\"//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js\"></script>",
+      "<script>",
+        "WebFont.load({",
+          "google: {",
+            "families: ['Roboto:100,200,300,400,500,600,700']",
+          "}",
+        "});",
+      "</script>"
+    ], $childs ));
   }
 
   public static function div(

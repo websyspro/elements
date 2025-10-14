@@ -14,7 +14,12 @@ extends AbstractElement
     string|array|null $childs = []
   ){
     $this->classList = DataList::create([])->merge($classes);
-    $this->cssList   = DataList::create([])->merge(["font-family" => "roboto"]);
+    $this->cssList   = DataList::create([])->merge([
+      "box-sizing" => "border-box",
+      "font-family" => "roboto",
+      "padding" => "0px",
+      "margin" => "0px"
+    ]);
     $this->childList = DataList::create([])->merge([
       "<script src=\"//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js\"></script>",
       "<script>",

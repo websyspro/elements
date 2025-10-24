@@ -60,8 +60,8 @@ class Component
   }
 
   public static function render(
-    array $childs = []
-  ): string {
-    return (new static($childs))->get();
+    object $viewHtml
+  ): object {
+    return (new static([$viewHtml]));
   }
 }

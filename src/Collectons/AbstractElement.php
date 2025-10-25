@@ -133,15 +133,16 @@ class AbstractElement
       return ConstHtmls::emptyHtml->value;
     }
 
-    return $this->childList->mapper(
-      function(AbstractElement|string $abstractElement){
-        if(is_string($abstractElement) === true){
-          return $abstractElement;
-        }
+    return $this->childList
+      ->mapper(
+        function(mixed $child){
+          if(is_string($child) === true){
+            return $child;
+          }
 
-        return $abstractElement->get();
-      }
-    )->joinNotSpace();
+          return $child->get();
+        }
+      )->joinNotSpace();
   }
 
   public function getAttributes(

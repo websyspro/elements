@@ -2,17 +2,18 @@
 
 namespace Websyspro\Elements\Shareds;
 
+use Websyspro\Elements\Collectons\Head;
 use Websyspro\Commons\DataList;
 use Websyspro\Elements\Dom;
 use ReflectionClass;
-use Websyspro\Commons\Util;
-use Websyspro\Elements\Collectons\Head;
 
 class Component
 {
   public function __construct(
     private object $child
-  ){}
+  ){
+    $this->getAssets();
+  }
 
   private function getBasePath(
   ): string {

@@ -51,15 +51,22 @@ extends AbstractElement
       return ConstHtmls::emptyHtml->value;
     }
 
+    if(isset(Head::$styles)){
+      $this->childList->merge(Head::$styles->all());
+    }
+
+    if(isset(Head::$scripts)){
+      $this->childList->merge(Head::$scripts->all());
+    }    
+
     return $this->childList
-      ->merge(Head::$styles->all())
-      ->merge(Head::$scripts->all())->mapper(
-        function(AbstractElement|string $abstractElement){
-          if(is_string($abstractElement) === true){
-            return $abstractElement;
+      ->mapper(
+        function(mixed $child){
+          if(is_string($child) === true){
+            return $child;
           }
 
-          return $abstractElement->get();
+          return $child->get();
         }
       )->joinNotSpace();
   } 

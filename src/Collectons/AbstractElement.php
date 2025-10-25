@@ -91,7 +91,7 @@ class AbstractElement
     if(isset($this->dataList) === false){
       return ConstHtmls::emptyHtml->value;
     }
-
+    
     return $this->dataList->mapper(
       fn(string $value, string $key) => (
         "{$key}=\"{$value}\""
@@ -127,7 +127,7 @@ class AbstractElement
     )->joinWithComma();    
   }  
   
-  private function getChilds(
+  public function getChilds(
   ): string {
     if(isset($this->childList) === false){
       return ConstHtmls::emptyHtml->value;
@@ -144,7 +144,7 @@ class AbstractElement
     )->joinNotSpace();
   }
 
-  private function getAttributes(
+  public function getAttributes(
   ): string {
     $attributes = (
       DataList::create([

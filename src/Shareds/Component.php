@@ -5,6 +5,7 @@ namespace Websyspro\Elements\Shareds;
 use Websyspro\Commons\DataList;
 use Websyspro\Elements\Dom;
 use ReflectionClass;
+use Websyspro\Elements\Collectons\Head;
 
 class Component
 {
@@ -39,9 +40,9 @@ class Component
 
   private function getAssets(
   ): array {
-    $assets[] = Dom::style($this->getFilesByExt("css"));
-    $assets[] = Dom::script($this->getFilesByExt("js"));
-    return $assets;
+    Head::registerStyle("testCSS", $this->getFilesByExt("css"));
+    Head::registerScript("testScripts", $this->getFilesByExt("js"));
+    return [];
   }  
 
   private function getChilds(

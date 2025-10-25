@@ -19,7 +19,7 @@ extends AbstractElement
   public function get(
   ): string {
     return DataList::create([
-      "<{$this->tagElement}>",
+      "<{$this->tagElement}{$this->getAttributes()}>",
         "{$this->stringList->joinNotSpace()}",
       "</{$this->tagElement}>"
     ])->joinNotSpace();

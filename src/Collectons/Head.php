@@ -25,7 +25,7 @@ extends AbstractElement
 
     Head::$styles->add(
       Dom::style( $styleText )->data([
-        "style-name" => $styleName
+        "data-component" => $styleName
       ])
     );
   }
@@ -40,7 +40,7 @@ extends AbstractElement
 
     Head::$scripts->add(
       Dom::script( $scriptText )->data([
-        "script-name" => $scriptName
+        "data-component" => $scriptName
       ])
     );
   }

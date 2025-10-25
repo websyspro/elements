@@ -4,10 +4,10 @@ namespace Websyspro\Elements\Collectons;
 
 use Websyspro\Commons\DataList;
 
-class Style
+class Scripts
 extends AbstractElement
 {
-  public string $tagElement = "style";
+  public string $tagElement = "script";
   public DataList $stringList;
 
   public function __construct(
@@ -19,7 +19,7 @@ extends AbstractElement
   public function get(
   ): string {
     return DataList::create([
-      "<{$this->tagElement}{$this->getAttributes()}>",
+      "<{$this->tagElement}>",
         "{$this->stringList->joinNotSpace()}",
       "</{$this->tagElement}>"
     ])->joinNotSpace();

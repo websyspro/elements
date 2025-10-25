@@ -28,7 +28,7 @@ class AbstractElement
   }
 
   public function add(
-    string|array|null $childs = []
+    mixed ...$childs
   ): mixed {
     if(isset($this->childList) === false){
       $this->childList = DataList::create([]);
@@ -77,7 +77,13 @@ class AbstractElement
       return ConstHtmls::emptyHtml->value;
     }
 
-    return $this->classList->joinWithSpace();    
+    if($this->classList->exist() === true){
+      return sprintf("class=\"%s\"", (
+        $this->classList->joinWithSpace()
+      ));    
+    }
+
+    return ConstHtmls::emptyHtml->value;
   }
 
   public function getDatas(
@@ -85,7 +91,7 @@ class AbstractElement
     if(isset($this->dataList) === false){
       return ConstHtmls::emptyHtml->value;
     }
-
+    
     return $this->dataList->mapper(
       fn(string $value, string $key) => (
         "{$key}=\"{$value}\""
@@ -121,24 +127,25 @@ class AbstractElement
     )->joinWithComma();    
   }  
   
-  private function getChilds(
+  public function getChilds(
   ): string {
     if(isset($this->childList) === false){
       return ConstHtmls::emptyHtml->value;
     }
 
-    return $this->childList->mapper(
-      function(AbstractElement|string $abstractElement){
-        if(is_string($abstractElement) === true){
-          return $abstractElement;
-        }
+    return $this->childList
+      ->mapper(
+        function(mixed $child){
+          if(is_string($child) === true){
+            return $child;
+          }
 
-        return $abstractElement->get();
-      }
-    )->joinNotSpace();
+          return $child->get();
+        }
+      )->joinNotSpace();
   }
 
-  private function getAttributes(
+  public function getAttributes(
   ): string {
     $attributes = (
       DataList::create([

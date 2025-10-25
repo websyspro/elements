@@ -2,6 +2,7 @@
 
 namespace Websyspro\Elements\Shareds;
 
+use Websyspro\Elements\Collectons\Head;
 use Websyspro\Commons\DataList;
 use Websyspro\Elements\Dom;
 use ReflectionClass;
@@ -9,8 +10,10 @@ use ReflectionClass;
 class Component
 {
   public function __construct(
-    private array $childs = []
-  ){}
+    private object $child
+  ){
+    $this->getAssets();
+  }
 
   private function getBasePath(
   ): string {
@@ -39,29 +42,34 @@ class Component
 
   private function getAssets(
   ): array {
-    $assets[] = Dom::style($this->getFilesByExt("css"));
-    $assets[] = Dom::script($this->getFilesByExt("js"));
-    return $assets;
+    $className = DataList::create(
+      explode("\\", get_class($this))
+    )->last();
+
+    Head::registerStyle($className, $this->getFilesByExt("css"));
+    Head::registerScript($className, $this->getFilesByExt("js"));
+    return [];
   }  
 
   private function getChilds(
   ): array {
-    return $this->childs;
+    return [ $this->child ];
   }
 
-  private function get(
+  public function get(
   ): string {
     return Dom::div(
-      [], [ array_merge(
+      [], array_merge(
         $this->getAssets(),
         $this->getChilds()
-      )]
+      )
     )->get();
   }
 
   public static function render(
-    object $viewHtml
   ): object {
-    return (new static([$viewHtml]));
+    return new static(
+      Dom::div([], [ "Test" ])
+    );
   }
 }

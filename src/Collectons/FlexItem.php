@@ -24,7 +24,7 @@ extends AbstractElement
     return [
       "justify-content" => "center",
       "align-items" => "center",
-      "over-flow-y" => "auto",
+      "overflow-y" => "auto",
       "display" => "flex"
     ];
   }

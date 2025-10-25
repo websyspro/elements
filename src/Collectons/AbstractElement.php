@@ -77,7 +77,13 @@ class AbstractElement
       return ConstHtmls::emptyHtml->value;
     }
 
-    return $this->classList->joinWithSpace();    
+    if($this->classList->exist() === true){
+      return sprintf("class=\"%s\"", (
+        $this->classList->joinWithSpace()
+      ));    
+    }
+
+    return ConstHtmls::emptyHtml->value;
   }
 
   public function getDatas(

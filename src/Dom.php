@@ -12,7 +12,7 @@ use Websyspro\Elements\Collectons\FlexItem;
 use Websyspro\Elements\Collectons\Head;
 use Websyspro\Elements\Collectons\Html;
 use Websyspro\Elements\Collectons\Meta;
-use Websyspro\Elements\Collectons\Script;
+use Websyspro\Elements\Collectons\Scripts;
 use Websyspro\Elements\Collectons\Style;
 use Websyspro\Elements\Collectons\Title;
 use Websyspro\Elements\Enums\FlexDirection;
@@ -62,7 +62,7 @@ class Dom
   public static function script(
     string|array|null $strings = []
   ): AbstractElement {
-    return new Script($strings);
+    return new Scripts($strings);
   }  
  
   public static function body(

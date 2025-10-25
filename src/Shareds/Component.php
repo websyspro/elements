@@ -9,7 +9,7 @@ use ReflectionClass;
 class Component
 {
   public function __construct(
-    private array $childs = []
+    private object $child
   ){}
 
   private function getBasePath(
@@ -46,22 +46,23 @@ class Component
 
   private function getChilds(
   ): array {
-    return $this->childs;
+    return [ $this->child ];
   }
 
-  private function get(
+  public function get(
   ): string {
     return Dom::div(
-      [], [ array_merge(
+      [], array_merge(
         $this->getAssets(),
         $this->getChilds()
-      )]
+      )
     )->get();
   }
 
   public static function render(
-    object $viewHtml
   ): object {
-    return (new static([$viewHtml]));
+    return new static(
+      Dom::div([], [ "Test" ])
+    );
   }
 }

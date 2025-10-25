@@ -28,7 +28,7 @@ class AbstractElement
   }
 
   public function add(
-    string|array|null $childs = []
+    mixed ...$childs
   ): mixed {
     if(isset($this->childList) === false){
       $this->childList = DataList::create([]);

@@ -65,11 +65,4 @@ class Component
       )
     )->get();
   }
-
-  public static function render(
-  ): object {
-    return new static(
-      Dom::div([], [ "Test" ])
-    );
-  }
 }

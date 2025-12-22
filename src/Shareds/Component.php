@@ -49,7 +49,18 @@ class Component
     Head::registerStyle($className, $this->getFilesByExt("css"));
     Head::registerScript($className, $this->getFilesByExt("js"));
     return [];
-  }  
+  }
+
+  private function getClassName(
+  ): string {
+    return DataList::create(
+      explode(
+        "\\", 
+        get_class($this)
+      )
+    )->last();
+  } 
+
   private function getChilds(
   ): array {
     return array_merge(
@@ -61,7 +72,7 @@ class Component
 
   public function get(
   ): string {
-    return Dom::div( "" )->add(
+    return Dom::div( $this->getClassName() )->add(
       ...$this->getChilds()
     )->get();
   }

@@ -50,26 +50,17 @@ class Component
     Head::registerScript($className, $this->getFilesByExt("js"));
     return [];
   }  
-
   private function getChilds(
   ): array {
-    return [ $this->child ];
+    return array_merge(
+      $this->getAssets(), [ $this->child ]
+    );
   }
 
   public function get(
   ): string {
     return Dom::div(
-      [], array_merge(
-        $this->getAssets(),
-        $this->getChilds()
-      )
-    )->get();
-  }
-
-  public static function render(
-  ): object {
-    return new static(
-      Dom::div([], [ "Test" ])
-    );
+      get_class($this),
+    )->add( ...$this->getChilds())->get();
   }
 }

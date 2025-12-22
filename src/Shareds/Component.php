@@ -53,14 +53,16 @@ class Component
   private function getChilds(
   ): array {
     return array_merge(
-      $this->getAssets(), [ $this->child ]
+      $this->getAssets(), [
+        $this->child
+      ]
     );
   }
 
   public function get(
   ): string {
-    return Dom::div(
-      get_class($this),
-    )->add( ...$this->getChilds())->get();
+    return Dom::div( "" )->add(
+      ...$this->getChilds()
+    )->get();
   }
 }

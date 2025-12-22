@@ -72,8 +72,8 @@ class Component
 
   public function get(
   ): string {
-    return Dom::div( "Component-{$this->getClassName()}" )->add(
-      ...$this->getChilds()
+    return Dom::div( $this->getClassName() )->add(
+      $this->getChilds()
     )->get();
   }
 }

@@ -94,21 +94,21 @@ class Dom
     return new FlexContainer($flexDirection, $flexGap);
   }
 
-  public static function FlexItem(
+  public static function flexItem(
     int $size = 0,
     bool $resized = true
   ): AbstractElement {
     return new FlexItem($size, $resized);
   }
   
-  public static function H1(
+  public static function h1(
     string|array|null $classes = [],
     string|array|null $childs = []
   ): AbstractElement {
     return new H1($classes, $childs);
   }
 
-  public static function H2(
+  public static function h2(
     string|array|null $classes = [],
     string|array|null $childs = []
   ): AbstractElement {

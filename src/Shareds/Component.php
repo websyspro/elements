@@ -9,7 +9,7 @@ use ReflectionClass;
 
 class Component
 {
-  public string $tagElement = "div";
+  protected string $tagElement = "div";
 
   public function __construct(
     private array $childs = []

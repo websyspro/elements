@@ -9,6 +9,8 @@ use ReflectionClass;
 
 class Component
 {
+  public string $tagElement = "div";
+
   public function __construct(
     private array $childs = []
   ){
@@ -70,8 +72,8 @@ class Component
 
   public function get(
   ): string {
-    return Dom::div( $this->getClassName() )->add(
-      $this->getChilds()
-    )->get();
+    return Dom::div( $this->getClassName() )
+      ->tag($this->tagElement)
+      ->add($this->getChilds())->get();
   }
 }

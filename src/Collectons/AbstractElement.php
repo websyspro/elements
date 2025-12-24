@@ -27,6 +27,13 @@ class AbstractElement
     $this->childList = DataList::create([])->merge($childs);
   }
 
+  public function tag(
+    string $tagElement
+  ): mixed {
+    $this->tagElement = $tagElement;
+    return $this;
+  }
+
   public function add(
     array $childs = []
   ): mixed {

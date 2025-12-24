@@ -10,7 +10,7 @@ use ReflectionClass;
 class Component
 {
   public function __construct(
-    private object $child
+    private array $childs = []
   ){
     $this->getAssets();
   }
@@ -64,9 +64,7 @@ class Component
   private function getChilds(
   ): array {
     return array_merge(
-      $this->getAssets(), [
-        $this->child
-      ]
+      $this->getAssets(), $this->childs
     );
   }
 

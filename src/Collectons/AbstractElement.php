@@ -7,7 +7,7 @@ use Websyspro\Elements\Enums\ConstHtmls;
 
 class AbstractElement
 {
-  public string $tagElement = "div";
+  protected string $tagElement = "div";
   public bool $isEndTag = true;
   public array $isElementEndBar = [
     "img"

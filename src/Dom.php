@@ -14,6 +14,7 @@ use Websyspro\Elements\Collectons\H2;
 use Websyspro\Elements\Collectons\Head;
 use Websyspro\Elements\Collectons\Html;
 use Websyspro\Elements\Collectons\Meta;
+use Websyspro\Elements\Collectons\Paragraph;
 use Websyspro\Elements\Collectons\Scripts;
 use Websyspro\Elements\Collectons\Style;
 use Websyspro\Elements\Collectons\Title;
@@ -113,5 +114,12 @@ class Dom
     string|array|null $childs = []
   ): AbstractElement {
     return new H2($classes, $childs);
-  }  
+  }
+  
+  public static function paragraph(
+    string|array|null $classes = [],
+    string|array|null $childs = []
+  ): AbstractElement {
+    return new Paragraph($classes, $childs);
+  }
 }

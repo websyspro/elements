@@ -9,6 +9,8 @@ use Websyspro\Elements\Collectons\Div;
 use Websyspro\Elements\Collectons\DocType;
 use Websyspro\Elements\Collectons\FlexContainer;
 use Websyspro\Elements\Collectons\FlexItem;
+use Websyspro\Elements\Collectons\H1;
+use Websyspro\Elements\Collectons\H2;
 use Websyspro\Elements\Collectons\Head;
 use Websyspro\Elements\Collectons\Html;
 use Websyspro\Elements\Collectons\Meta;
@@ -97,5 +99,19 @@ class Dom
     bool $resized = true
   ): AbstractElement {
     return new FlexItem($size, $resized);
-  } 
+  }
+  
+  public static function H1(
+    string|array|null $classes = [],
+    string|array|null $childs = []
+  ): AbstractElement {
+    return new H1($classes, $childs);
+  }
+
+  public static function H2(
+    string|array|null $classes = [],
+    string|array|null $childs = []
+  ): AbstractElement {
+    return new H2($classes, $childs);
+  }  
 }

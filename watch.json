@@ -1,9 +1,8 @@
 {
   "directories": [
-    "src",
-    "test"
+    "src"
   ],
-  "files": [
-    "src/main.php"
-  ]
+  "reload": {
+    "port": 3001
+  }
 }

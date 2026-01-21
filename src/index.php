@@ -19,6 +19,7 @@ Document::render( [
 */
 
 use Websyspro\Elements\Shareds\Body;
+use Websyspro\Elements\Shareds\Div;
 use Websyspro\Elements\Shareds\Doctype;
 use Websyspro\Elements\Shareds\Document;
 use Websyspro\Elements\Shareds\Head;
@@ -36,7 +37,11 @@ Document::create(
           )
         ),
         Body::create()->add(
-          "Test"
+          [
+            Div::create()->add(
+              "Hello World este"
+            )
+          ]
         )
       ]
     )

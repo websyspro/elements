@@ -71,7 +71,7 @@ class Head extends Component
         $childs, [
           Link::create()->props( [ "rel" => "preconnect", "href" => "https://fonts.googleapis.com" ]), 
           Link::create()->props( [ "rel" => "preconnect", "href" => "https://fonts.gstatic.com", "crossorigin" => true ]),
-          Link::create()->props( [ "rel" => "stylesheet", "href" => "ttps://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"])
+          Link::create()->props( [ "rel" => "stylesheet", "href" => "ttps://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" ])
         ]
       ), $events, $styles, $props
     );

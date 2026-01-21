@@ -8,15 +8,24 @@ use Websyspro\Elements\Shareds\Enums\HtmlTag;
 
 abstract class Dom implements IComponent
 {
+  private Collection $childs;
+  private Collection $events;
+  private Collection $styles;
+  private Collection $props;
   public HtmlTag $htmlTag = HtmlTag::DIV;
   public bool $isClosedTag = true;
 
   public function __construct(
-    private Collection $childs = new Collection(),
-    private Collection $events = new Collection(),
-    private Collection $styles = new Collection(),
-    private Collection $attributes = new Collection()
-  ){}
+    array $childs = [],
+    array $events = [],
+    array $styles = [],
+    array $props  = []
+  ){
+    $this->childs = new Collection( $childs );
+    $this->events = new Collection( $events );
+    $this->styles = new Collection( $styles );
+    $this->props  = new Collection( $props );
+  }
 
   public function add(
     object|array|string $child
@@ -54,11 +63,11 @@ abstract class Dom implements IComponent
     return $this;
   }
 
-  public function attributes(
-    array $attributes
+  public function props(
+    array $props
   ): Dom {
-    if( Util::isArray( $attributes )){
-      $this->attributes->merge( $attributes );
+    if( Util::isArray( $props )){
+      $this->props->merge( $props );
     }
     
     return $this;
@@ -66,7 +75,7 @@ abstract class Dom implements IComponent
 
   private function attributeList(
   ): array {
-    return $this->attributes->mapper(
+    return $this->props->mapper(
       fn(string $value, string $key) => Util::sprintFormat(
         "%s=\"%s\"", [ $key, $value ]
       )
@@ -145,7 +154,16 @@ abstract class Dom implements IComponent
   }
 
   public static function create(
+    array $childs = [],
+    array $events = [],
+    array $styles = [],
+    array $props  = []
   ): Dom {  
-    return new static();
+    return new static(
+      $childs,
+      $events,
+      $styles,
+      $props
+    );
   }
 }

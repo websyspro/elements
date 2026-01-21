@@ -4,12 +4,12 @@ namespace Websyspro\Elements\Shareds;
 
 use Websyspro\Commons\Collection;
 use Websyspro\Elements\Shareds\Abstract\Component;
-use Websyspro\Elements\Shareds\Abstract\IComponent;
+use Websyspro\Elements\Shareds\Abstract\Dom;
 use Websyspro\Elements\Shareds\Enums\AssetType;
 use Websyspro\Elements\Shareds\Enums\HtmlTag;
 use Websyspro\Elements\Shareds\Interfaces\IAsset;
 
-class Head extends Component implements IComponent 
+class Head extends Component
 {
   public static Collection $assets;
   public HtmlTag $htmlTag = HtmlTag::HEAD;
@@ -40,24 +40,40 @@ class Head extends Component implements IComponent
 
   private function assets(
   ): void {
-    if( isset( Head::$assets )){
-      Head::$assets->mapper(
-        function( IAsset $iAsset ) {
-          $iAsset->assetType === AssetType::JS
-            ? $this->add( Script::create()->attributes( [ "src" => $iAsset->filename ])) 
-            : $this->add( Style::create()->attributes( [ "href" => $iAsset->filename ]));
-        }
-      );
+    if( isset( Head::$assets ) === false){
+      Head::$assets = new Collection([
+        new IAsset( "FontUbuntu", "https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap", AssetType::CSS )
+      ]);
     }
+
+    Head::$assets->mapper(
+      function( IAsset $iAsset ) {
+        $iAsset->assetType === AssetType::JS
+          ? $this->add( Script::create()->props( [ "src" => $iAsset->filename ])) 
+          : $this->add( Style::create()->props( [ "href" => $iAsset->filename ]));
+      }
+    );    
   }
 
   public function render(
   ): void {
     $this->assets();
-    $this->add(
-      Title::create()->add(
-        "Hello Word!!!"
-      )
+  }
+
+  public static function create(
+    array $childs = [],
+    array $events = [],
+    array $styles = [],
+    array $props  = []
+  ): Dom {
+    return new static(
+      array_merge(
+        $childs, [
+          Link::create()->props( [ "rel" => "preconnect", "href" => "https://fonts.googleapis.com" ]), 
+          Link::create()->props( [ "rel" => "preconnect", "href" => "https://fonts.gstatic.com", "crossorigin" => true ]),
+          Link::create()->props( [ "rel" => "stylesheet", "href" => "ttps://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"])
+        ]
+      ), $events, $styles, $props
     );
   }
 }

@@ -4,7 +4,7 @@ namespace Websyspro\Elements\Shareds\Abstract;
 
 use ReflectionClass;
 
-abstract class Component extends Dom
+class Component extends Dom
 {
   private function basePath(
     string $filename

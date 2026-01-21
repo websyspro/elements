@@ -50,17 +50,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/websyspro/dev-tools.git",
-                "reference": "29cafcddb79f3c6371f5d24b4a79d2fbcdbb623d"
+                "reference": "f08b70fb4c18633eae10687db073f1929799d416"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/websyspro/dev-tools/zipball/29cafcddb79f3c6371f5d24b4a79d2fbcdbb623d",
-                "reference": "29cafcddb79f3c6371f5d24b4a79d2fbcdbb623d",
+                "url": "https://api.github.com/repos/websyspro/dev-tools/zipball/f08b70fb4c18633eae10687db073f1929799d416",
+                "reference": "f08b70fb4c18633eae10687db073f1929799d416",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.1",
-                "websyspro/commons": "dev-main"
+                "websyspro/commons": "dev-main",
+                "websyspro/elements": "dev-main"
             },
             "default-branch": true,
             "bin": [
@@ -88,7 +89,7 @@
                 "issues": "https://github.com/websyspro/dev-tools/issues",
                 "source": "https://github.com/websyspro/dev-tools/tree/main"
             },
-            "time": "2026-01-21T00:22:40+00:00"
+            "time": "2026-01-21T22:44:54+00:00"
         }
     ],
     "packages-dev": [],

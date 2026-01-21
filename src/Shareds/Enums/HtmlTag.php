@@ -5,6 +5,7 @@ namespace Websyspro\Elements\Shareds\Enums;
 enum HtmlTag: string
 {
     // Estrutura do documento
+    case DOCTYPE = '!DOCTYPE html';
     case HTML = 'html';
     case HEAD = 'head';
     case BODY = 'body';

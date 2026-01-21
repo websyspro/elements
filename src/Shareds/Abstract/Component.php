@@ -15,7 +15,11 @@ abstract class Component extends Dom
 
     return implode(
       DIRECTORY_SEPARATOR,
-      [ dirname( $reflectClass->getFileName()), $filename ]
+      [ 
+        dirname(
+          $reflectClass->getFileName()
+        ), $filename
+      ]
     );
   }
 

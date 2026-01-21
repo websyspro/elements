@@ -9,7 +9,7 @@ use Websyspro\Elements\Shareds\Enums\AssetType;
 use Websyspro\Elements\Shareds\Enums\HtmlTag;
 use Websyspro\Elements\Shareds\Interfaces\IAsset;
 
-final class Head extends Component implements IComponent 
+class Head extends Component implements IComponent 
 {
   public static Collection $assets;
   public HtmlTag $htmlTag = HtmlTag::HEAD;

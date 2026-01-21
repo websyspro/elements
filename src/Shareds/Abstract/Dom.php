@@ -6,12 +6,12 @@ use Websyspro\Commons\Collection;
 use Websyspro\Commons\Util;
 use Websyspro\Elements\Shareds\Enums\HtmlTag;
 
-abstract class Dom implements IComponent
+class Dom
 {
-  private Collection $childs;
-  private Collection $events;
-  private Collection $styles;
-  private Collection $props;
+  public Collection $childs;
+  public Collection $events;
+  public Collection $styles;
+  public Collection $props;
   public HtmlTag $htmlTag = HtmlTag::DIV;
   public bool $isClosedTag = true;
 
@@ -25,6 +25,8 @@ abstract class Dom implements IComponent
     $this->events = new Collection( $events );
     $this->styles = new Collection( $styles );
     $this->props  = new Collection( $props );
+
+    $this->render();
   }
 
   public function add(
@@ -108,7 +110,7 @@ abstract class Dom implements IComponent
     )];
   }  
 
-  private function childList(
+  public function childList(
   ): string {
     return $this->childs->mapper(
       function(object|string $child){
@@ -121,17 +123,11 @@ abstract class Dom implements IComponent
     )->joinNotSpace();
   }
 
-  public function init(
-  ): void {}  
-
   public function render(
   ): void {}
 
   public function get(
   ): string {
-    $this->init();
-    $this->render();
-
     $props = new Collection(
       Util::merge(
         $this->attributeList(),

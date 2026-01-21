@@ -12,7 +12,7 @@ class Document
   ): void {  
     $collection = new Collection( $childs );
     $collection = $collection->mapper(
-      fn(Dom $child) => $child->get() 
+      fn( Dom $child ) => $child->get() 
     );
 
     print $collection->joinNotSpace();

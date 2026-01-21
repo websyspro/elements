@@ -4,8 +4,8 @@ namespace Websyspro\Elements\Shareds\Components;
 
 use Websyspro\Elements\Shareds\Abstract\Component;
 use Websyspro\Elements\Shareds\Enums\HtmlTag;
-use Websyspro\Commons\Util;
 use Websyspro\Elements\Shareds\Abstract\Dom;
+use Websyspro\Commons\Util;
 
 class Head extends Component
 {

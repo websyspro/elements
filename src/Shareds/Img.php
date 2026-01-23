@@ -10,11 +10,13 @@ class Img extends Dom
   public HtmlTag $htmlTag = HtmlTag::IMG;
 
   public static function create(
-    string $src
+    string $src,
+    string $alt = ""
   ): Dom {
     return (new static)->props(
       [
-        "src" => $src
+        "src" => $src,
+        "alt" => $alt
       ]
     );
   }   

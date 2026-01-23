@@ -30,4 +30,9 @@ class Head extends Component
     )
     )->joinNotSpace();
   }
+
+  public static function create(
+  ): Dom {
+    return new static;
+  }
 }

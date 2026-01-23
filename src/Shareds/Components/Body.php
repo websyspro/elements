@@ -3,6 +3,7 @@
 namespace Websyspro\Elements\Shareds\Components;
 
 use Websyspro\Elements\Shareds\Abstract\Component;
+use Websyspro\Elements\Shareds\Abstract\Dom;
 use Websyspro\Elements\Shareds\Enums\HtmlTag;
 use Websyspro\Elements\Shareds\Link;
 use Websyspro\Elements\Shareds\Meta;
@@ -22,4 +23,9 @@ class Body extends Component
       Link::create()->props( [ "rel" => "stylesheet", "href" => "https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" ])
     ]);
   }
+
+  public static function create(
+  ): Dom {
+    return new static;
+  }  
 }

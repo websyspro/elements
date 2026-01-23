@@ -8,5 +8,10 @@ use Websyspro\Elements\Shareds\Enums\HtmlTag;
 class Doctype extends Dom
 {
   public HtmlTag $htmlTag = HtmlTag::DOCTYPE;
-  public bool $isClosedTag = false;  
+  public bool $isClosedTag = false;
+
+  public static function create(
+  ): Dom {
+    return new static;
+  }   
 }

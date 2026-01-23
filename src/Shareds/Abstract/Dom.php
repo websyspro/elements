@@ -148,9 +148,4 @@ class Dom
         : "<{$this->htmlTag->value}/>";
     }
   }
-
-  public static function create(
-  ): Dom {  
-    return new static();
-  }
 }

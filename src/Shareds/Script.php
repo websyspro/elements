@@ -8,4 +8,9 @@ use Websyspro\Elements\Shareds\Enums\HtmlTag;
 class Script extends Dom
 {
   public HtmlTag $htmlTag = HtmlTag::SCRIPT;
+
+  public static function create(
+  ): Dom {
+    return new static;
+  }   
 }

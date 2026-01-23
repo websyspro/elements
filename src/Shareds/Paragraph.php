@@ -5,7 +5,7 @@ namespace Websyspro\Elements\Shareds;
 use Websyspro\Elements\Shareds\Abstract\Dom;
 use Websyspro\Elements\Shareds\Enums\HtmlTag;
 
-class P extends Dom
+class Paragraph extends Dom
 {
   public HtmlTag $htmlTag = HtmlTag::P;
 

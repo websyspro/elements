@@ -150,16 +150,7 @@ class Dom
   }
 
   public static function create(
-    array $childs = [],
-    array $events = [],
-    array $styles = [],
-    array $props  = []
   ): Dom {  
-    return new static(
-      $childs,
-      $events,
-      $styles,
-      $props
-    );
+    return new static();
   }
 }

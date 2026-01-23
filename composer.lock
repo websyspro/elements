@@ -50,12 +50,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/websyspro/dev-tools.git",
-                "reference": "f08b70fb4c18633eae10687db073f1929799d416"
+                "reference": "2817528dc2d0cf1b8d720d9dd835d2b85e591b50"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/websyspro/dev-tools/zipball/f08b70fb4c18633eae10687db073f1929799d416",
-                "reference": "f08b70fb4c18633eae10687db073f1929799d416",
+                "url": "https://api.github.com/repos/websyspro/dev-tools/zipball/2817528dc2d0cf1b8d720d9dd835d2b85e591b50",
+                "reference": "2817528dc2d0cf1b8d720d9dd835d2b85e591b50",
                 "shasum": ""
             },
             "require": {
@@ -89,7 +89,7 @@
                 "issues": "https://github.com/websyspro/dev-tools/issues",
                 "source": "https://github.com/websyspro/dev-tools/tree/main"
             },
-            "time": "2026-01-21T22:44:54+00:00"
+            "time": "2026-01-23T17:48:53+00:00"
         }
     ],
     "packages-dev": [],

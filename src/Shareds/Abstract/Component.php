@@ -21,7 +21,11 @@ class Component extends Dom
       $childs,
       $events,
       $styles,
-      $props
+      array_merge(
+        $props, [
+          "class" => $this->getClasse()
+        ] 
+      )
     );
 
     $this->addLink();
@@ -107,6 +111,15 @@ class Component extends Dom
     }
 
     return null;
+  }
+
+  private function getClasse(
+  ): string {
+    return $this->componentName(
+      new ReflectionClass(
+        $this
+      )
+    );
   }
 
   private function addLink(

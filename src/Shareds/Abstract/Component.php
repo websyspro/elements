@@ -78,14 +78,13 @@ class Component extends Dom
     [ "SERVER_NAME" => $serverName,
       "SERVER_PORT" => $serverPort
     ] = $_SERVER;
-
-    if((int)$serverPort === 80){
-      $serverPort = "";
-    }
+    
+    $serverPort = (int)$serverPort === 80 
+      ? "" : ":{$serverPort}";
 
     return $this->isHttps() 
-      ? "https://{$serverName}:{$serverPort}" 
-      : "http://{$serverName}:{$serverPort}";
+      ? "https://{$serverName}{$serverPort}" 
+      : "http://{$serverName}{$serverPort}";
   }
 
   private function componentFile(

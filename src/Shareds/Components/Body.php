@@ -20,7 +20,7 @@ class Body extends Component
       Meta::create()->props( [ "name" => "viewport", "content" => "width=device-width, initial-scale=1.0"  ]),
       Link::create()->props( [ "rel" => "preconnect", "href" => "https://fonts.googleapis.com" ]), 
       Link::create()->props( [ "rel" => "preconnect", "href" => "https://fonts.gstatic.com", "crossorigin" => true ]),
-      Link::create()->props( [ "rel" => "stylesheet", "href" => "https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" ])
+      Link::create()->props( [ "rel" => "stylesheet", "href" => "https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" ])
     ]);
   }
 

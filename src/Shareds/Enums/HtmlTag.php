@@ -117,4 +117,5 @@ enum HtmlTag: string
     // Templates
     case TEMPLATE = 'template';
     case SLOT = 'slot';
+    case TIME = 'time';
 }

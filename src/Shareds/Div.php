@@ -10,7 +10,10 @@ class Div extends Dom
   public HtmlTag $htmlTag = HtmlTag::DIV;
 
   public static function create(
+    string $class
   ): Dom {
-    return new static;
+    return (new static)->props([
+      "class" => $class
+    ]);
   }  
 }

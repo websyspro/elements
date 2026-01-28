@@ -24,12 +24,20 @@ extends Dom
 		int $weight = 300,
 		string $fill = "#000"
 	): Dom {
-		return (new static);
+		[ $viewBox, $path ] = static::weight( $weight );
+
+		return (new static)
 			->add( Path::create(
+				$path
 			))
 			->props(
 				[
+					"xmlns" => "http://www.w3.org/2000/svg"
+					"viewBox" => "{$viewBox}"
+					"height" => "{$size}"
+					"width" => "{$size}"
+					"fill" => "{$fill}"
 				]
-			)
+			);
 	}
 }

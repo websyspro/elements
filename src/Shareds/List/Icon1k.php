@@ -5,11 +5,12 @@ namespace Websyspro\Elements\Shareds\List;
 use Websyspro\Elements\Shareds\Abstract\Dom;
 use Websyspro\Elements\Shareds\Enums\HtmlTag;
 use Websyspro\Elements\Shareds\Path;
+use Websyspro\Elements\Shareds\Svg;
 
 class Icon1k
 extends Dom
 {
-	public HtmlTag $htmlTag = HtmlTag::SVG;
+	public HtmlTag $htmlTag = HtmlTag::DIV;
 
 	private static function weight(
 		int $weight
@@ -33,17 +34,7 @@ extends Dom
 		[ $viewBox, $path ] = static::weight( $weight );
 
 		return (new static)
-			->add( Path::create(
-				$path
-			))
-			->props(
-				[
-					"xmlns" => "http://www.w3.org/2000/svg",
-					"viewBox" => "{$viewBox}",
-					"height" => "{$size}",
-					"width" => "{$size}",
-					"fill" => "{$fill}"
-				]
-			);
+			->props([ "class" => "Icon Icon1k" ])
+			->add( Svg::create( $size, $fill, $viewBox, $path ));
 	}
 }

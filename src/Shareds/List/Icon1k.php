@@ -4,7 +4,6 @@ namespace Websyspro\Elements\Shareds\List;
 
 use Websyspro\Elements\Shareds\Abstract\Dom;
 use Websyspro\Elements\Shareds\Enums\HtmlTag;
-use Websyspro\Elements\Shareds\Path;
 use Websyspro\Elements\Shareds\Svg;
 
 class Icon1k
@@ -28,8 +27,8 @@ extends Dom
 
 	public static function create(
 		int $size,
-		int $weight = 300,
-		string $fill = "#000"
+		string $fill = "#000",
+		int $weight = 300
 	): Dom {
 		[ $viewBox, $path ] = static::weight( $weight );
 

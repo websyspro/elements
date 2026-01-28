@@ -118,4 +118,6 @@ enum HtmlTag: string
     case TEMPLATE = 'template';
     case SLOT = 'slot';
     case TIME = 'time';
+    case SVG = 'svg';
+    case PATH = 'path';
 }

@@ -1,0 +1,49 @@
+<?php
+
+namespace Websyspro\Elements\Shareds\List;
+
+use Websyspro\Elements\Shareds\Abstract\Dom;
+use Websyspro\Elements\Shareds\Enums\HtmlTag;
+use Websyspro\Elements\Shareds\Path;
+
+class IconBacklightLow
+extends Dom
+{
+	public HtmlTag $htmlTag = HtmlTag::SVG;
+
+	private static function weight(
+		int $weight
+	): array {
+		return match( $weight ){
+			100 => [ "0 -960 960 960", "M112-386v-28h88v28h-88Zm160-202-62-63 19-19 62 63-19 19Zm34 296v-68h348v68H306Zm160-388v-88h28v88h-28Zm220 91-19-20 63-61 19 20-63 61Zm74 203v-28h88v28h-88Z" ],
+			200 => [ "0 -960 960 960", "M104.62-380v-40H200v40h-95.38Zm163.23-203.85-67.31-68.07 27.54-27.54 67.3 68.08-27.53 27.53ZM300-280v-80h360v80H300Zm160-400v-95.38h40V-680h-40Zm230.62 95.62-27.54-28.54 68.07-66.54 27.54 28.54-68.07 66.54ZM760-380v-40h95.38v40H760Z" ],
+			300 => [ "0 -960 960 960", "M92.31-370v-60H200v60H92.31Zm168.61-206.92-76.15-76.54 41.77-41.77 76.15 76.54-41.77 41.77ZM290-260v-100h380v100H290Zm160-420v-107.69h60V-680h-60Zm248.31 103.31-41.77-42.77 76.54-75.77 41.76 42.77-76.53 75.77ZM760-370v-60h107.69v60H760Z" ],
+			400 => [ "0 -960 960 960", "M80-360v-80h120v80H80Zm174-210-85-85 56-56 85 85-56 56Zm26 330v-120h400v120H280Zm160-440v-120h80v120h-80Zm266 111-56-57 85-85 56 57-85 85Zm54 209v-80h120v80H760Z" ],
+			500 => [ "0 -960 960 960", "M74.5-360v-91h131v91h-131ZM254-567.61l-92.89-92.89L225-724.39l92.89 92.89L254-567.61ZM274.5-229v-131h411v131h-411Zm160-451v-131h91v131h-91ZM706-566.61l-63.65-64.89L735-724.39l63.65 64.89L706-566.61ZM754.5-360v-91h131v91h-131Z" ],
+			600 => [ "0 -960 960 960", "M67-360v-106h146v106H67Zm187-204.35L150.35-668 225-742.65 328.65-639 254-564.35ZM267-214v-146h426v146H267Zm160-466v-146h106v146H427Zm279 116.65L631.91-639 735-742.65 809.09-667 706-563.35ZM747-360v-106h146v106H747Z" ],
+			700 => [ "0 -960 960 960", "M57-360v-126h166v126H57Zm197-200L136-678l89-89 118 118-89 89Zm3 366v-166h446v166H257Zm160-486v-166h126v166H417Zm289 121-88-90 117-118 88 90-117 118Zm31 199v-126h166v126H737Z" ],
+		};
+	}
+
+	public static function create(
+		int $size,
+		int $weight = 300,
+		string $fill = "#000"
+	): Dom {
+		[ $viewBox, $path ] = static::weight( $weight );
+
+		return (new static)
+			->add( Path::create(
+				$path
+			))
+			->props(
+				[
+					"xmlns" => "http://www.w3.org/2000/svg",
+					"viewBox" => "{$viewBox}",
+					"height" => "{$size}",
+					"width" => "{$size}",
+					"fill" => "{$fill}"
+				]
+			);
+	}
+}

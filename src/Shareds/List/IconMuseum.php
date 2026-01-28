@@ -1,0 +1,49 @@
+<?php
+
+namespace Websyspro\Elements\Shareds\List;
+
+use Websyspro\Elements\Shareds\Abstract\Dom;
+use Websyspro\Elements\Shareds\Enums\HtmlTag;
+use Websyspro\Elements\Shareds\Path;
+
+class IconMuseum
+extends Dom
+{
+	public HtmlTag $htmlTag = HtmlTag::SVG;
+
+	private static function weight(
+		int $weight
+	): array {
+		return match( $weight ){
+			100 => [ "0 -960 960 960", "M132-132v-28h80v-412h-80l348-244 348 244h-80v412h80v28H132Zm108-28h480-480Zm112-106h28v-186l100 148 100-148v186h28v-228h-34l-94 140-94-140h-34v228Zm368 106v-454L480-782 240-614v454h480Z" ],
+			200 => [ "0 -960 960 960", "M120-120v-40h80v-400h-80v-18.46l360-252.31 360 252.31V-560h-80v400h80v40H120Zm120-40h480-480Zm104.62-100h40v-180L480-298.46 575.38-440v180h40v-240h-44.61L480-364.62 389.23-500h-44.61v240ZM720-160v-454L480-782 240-614v454h480Z" ],
+			300 => [ "0 -960 960 960", "M100-100v-60h80v-380h-80v-49.23l380-266.15 380 266.15V-540h-80v380h80v60H100Zm140-60h480-480Zm92.31-90h60v-170L480-289.23 567.69-420v170h60v-260h-62.3L480-382.31 394.61-510h-62.3v260ZM720-160v-454L480-782 240-614v454h480Z" ],
+			400 => [ "0 -960 960 960", "M80-80v-80h80v-360H80v-80l400-280 400 280v80h-80v360h80v80H80Zm160-80h480-480Zm80-80h80v-160l80 120 80-120v160h80v-280h-80l-80 120-80-120h-80v280Zm400 80v-454L480-782 240-614v454h480Z" ],
+			500 => [ "0 -960 960 960", "M71.87-71.87v-96.26h80v-343.74h-80v-92.2L480-889.8l408.13 285.73v92.2h-80v343.74h80v96.26H71.87Zm171-91h474.26-474.26ZM320-240h80v-160l80 120 80-120v160h80v-280h-80l-80 120-80-120h-80v280Zm397.13 77.13v-449.7L480-778.41 242.87-612.57v449.7h474.26Z" ],
+			600 => [ "0 -960 960 960", "M60.78-60.78v-118.44h80v-321.56h-80v-108.83L480-903.18l419.22 293.57v108.83h-80v321.56h80v118.44H60.78Zm186-106h466.44-466.44ZM320-240h80v-160l80 120 80-120v160h80v-280h-80l-80 120-80-120h-80v280Zm393.22 73.22v-443.83L480-773.52 246.78-610.61v443.83h466.44Z" ],
+			700 => [ "0 -960 960 960", "M46-46v-148h80v-292H46v-131l434-304 434 304v131h-80v292h80v148H46Zm206-126h456-456Zm68-68h80v-160l80 120 80-120v160h80v-280h-80l-80 120-80-120h-80v280Zm388 68v-436L480-767 252-608v436h456Z" ],
+		};
+	}
+
+	public static function create(
+		int $size,
+		int $weight = 300,
+		string $fill = "#000"
+	): Dom {
+		[ $viewBox, $path ] = static::weight( $weight );
+
+		return (new static)
+			->add( Path::create(
+				$path
+			))
+			->props(
+				[
+					"xmlns" => "http://www.w3.org/2000/svg",
+					"viewBox" => "{$viewBox}",
+					"height" => "{$size}",
+					"width" => "{$size}",
+					"fill" => "{$fill}"
+				]
+			);
+	}
+}

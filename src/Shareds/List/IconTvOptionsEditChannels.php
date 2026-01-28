@@ -1,0 +1,49 @@
+<?php
+
+namespace Websyspro\Elements\Shareds\List;
+
+use Websyspro\Elements\Shareds\Abstract\Dom;
+use Websyspro\Elements\Shareds\Enums\HtmlTag;
+use Websyspro\Elements\Shareds\Path;
+
+class IconTvOptionsEditChannels
+extends Dom
+{
+	public HtmlTag $htmlTag = HtmlTag::SVG;
+
+	private static function weight(
+		int $weight
+	): array {
+		return match( $weight ){
+			100 => [ "0 -960 960 960", "M132-352v-45h47v45h-47Zm0-129v-45h47v45h-47Zm0-128v-44h47v44h-47Zm147 248v-28h105v28H279Zm0-128v-28h445v28H279Zm0-128v-28h445v28H279Zm344 405L498-337l20-20 105 105 207-207 20 20-227 227Z" ],
+			200 => [ "0 -960 960 960", "M120-344.62v-53.07h54.62v53.07H120Zm0-136.15v-53.08h54.62v53.08H120Zm0-135.38v-52.31h54.62v52.31H120Zm150 264.61v-40h117.69v40H270Zm0-135.38v-40h462.31v40H270Zm0-135.39v-40h462.31v40H270ZM626.46-200 491.08-335.38l28.54-28.54 106.84 106.84 211.39-211.38 28.3 28.77L626.46-200Z" ],
+			300 => [ "0 -960 960 960", "M100-332.31v-66.54h67.31v66.54H100Zm0-148.07v-66.54h67.31v66.54H100Zm0-147.7v-66.15h67.31v66.15H100Zm155 292.31v-60h138.85v60H255Zm0-147.69v-60h491.15v60H255Zm0-147.69v-60h491.15v60H255ZM632.23-180 479.54-332.69l42.77-42.77 109.92 109.92 218.69-218.69 42.15 43.38L632.23-180Z" ],
+			400 => [ "0 -960 960 960", "M80-320v-80h80v80H80Zm0-160v-80h80v80H80Zm0-160v-80h80v80H80Zm160 320v-80h160v80H240Zm0-160v-80h520v80H240Zm0-160v-80h520v80H240Zm398 480L468-330l57-57 113 113 226-226 56 58-282 282Z" ],
+			500 => [ "0 -960 960 960", "M71.87-302.06v-91.01h91v91.01h-91Zm0-171.01v-91h91v91h-91Zm0-171v-91h91v91h-91Zm175.54 342.01v-91.01h154.74v91.01H247.41Zm0-171.01v-91H761.2v91H247.41Zm0-171v-91H761.2v91H247.41Zm400.39 492.2L478.76-320.91l62.98-62.98L647.8-277.83 865.67-495.7l62.46 63.98L647.8-151.87Z" ],
+			600 => [ "0 -960 960 960", "M60.78-277.61v-106h106v106h-106Zm0-186v-106h106v106h-106Zm0-186v-106h106v106h-106Zm196.74 372v-106h147.57v106H257.52Zm0-186v-106h505.31v106H257.52Zm0-186v-106h505.31v106H257.52Zm403.66 508.83L493.44-308.52l71.13-71.13 96.61 96.61 206.78-206.79 71.26 72.14-278.04 276.91Z" ],
+			700 => [ "0 -960 960 960", "M46-245v-126h126v126H46Zm0-206v-126h126v126H46Zm0-206v-126h126v126H46Zm225 412v-126h138v126H271Zm0-206v-126h494v126H271Zm0-206v-126h494v126H271Zm408 531L513-292l82-82 84 84 192-192 83 83-275 273Z" ],
+		};
+	}
+
+	public static function create(
+		int $size,
+		int $weight = 300,
+		string $fill = "#000"
+	): Dom {
+		[ $viewBox, $path ] = static::weight( $weight );
+
+		return (new static)
+			->add( Path::create(
+				$path
+			))
+			->props(
+				[
+					"xmlns" => "http://www.w3.org/2000/svg",
+					"viewBox" => "{$viewBox}",
+					"height" => "{$size}",
+					"width" => "{$size}",
+					"fill" => "{$fill}"
+				]
+			);
+	}
+}

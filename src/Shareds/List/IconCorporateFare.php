@@ -1,0 +1,49 @@
+<?php
+
+namespace Websyspro\Elements\Shareds\List;
+
+use Websyspro\Elements\Shareds\Abstract\Dom;
+use Websyspro\Elements\Shareds\Enums\HtmlTag;
+use Websyspro\Elements\Shareds\Path;
+
+class IconCorporateFare
+extends Dom
+{
+	public HtmlTag $htmlTag = HtmlTag::SVG;
+
+	private static function weight(
+		int $weight
+	): array {
+		return match( $weight ){
+			100 => [ "0 -960 960 960", "M118-164v-668h348v160h376v508H118Zm28-28h292v-132H146v132Zm0-160h292v-132H146v132Zm0-160h292v-132H146v132Zm0-160h292v-132H146v132Zm320 480h348v-452H466v452Zm100-292v-28h128v28H566Zm0 160v-28h128v28H566Z" ],
+			200 => [ "0 -960 960 960", "M109.23-153.85v-680h360v160h381.54v520H109.23Zm40-40h280v-120h-280v120Zm0-160h280v-120h-280v120Zm0-160h280v-120h-280v120Zm0-160h280v-120h-280v120Zm320 480h341.54v-440H469.23v440Zm95.39-280v-40H700v40H564.62Zm0 160v-40H700v40H564.62Z" ],
+			300 => [ "0 -960 960 960", "M94.62-136.92v-700h379.99v160h390.77v540H94.62Zm59.99-60h260.01v-100H154.61v100Zm0-160h260.01v-100H154.61v100Zm0-160h260.01v-100H154.61v100Zm0-160h260.01v-100H154.61v100Zm320 480h330.78v-420H474.61v420Zm87.7-260v-60H710v60H562.31Zm0 160v-60H710v60H562.31Z" ],
+			400 => [ "0 -960 960 960", "M80-120v-720h400v160h400v560H80Zm80-80h240v-80H160v80Zm0-160h240v-80H160v80Zm0-160h240v-80H160v80Zm0-160h240v-80H160v80Zm320 480h320v-400H480v400Zm80-240v-80h160v80H560Zm0 160v-80h160v80H560Z" ],
+			500 => [ "0 -960 960 960", "M72.59-109v-734.59h414.82v160h400V-109H72.59ZM160-196.41h240v-80H160v80Zm0-160h240v-80H160v80Zm0-160h240v-80H160v80Zm0-160h240v-80H160v80Zm320 480h320v-400H480v400Zm80-240v-80h160v80H560Zm0 160v-80h160v80H560Z" ],
+			600 => [ "0 -960 960 960", "M62.48-94v-754.48h435.04v160h400V-94H62.48ZM160-191.52h240v-80H160v80Zm0-160h240v-80H160v80Zm0-160h240v-80H160v80Zm0-160h240v-80H160v80Zm320 480h320v-400H480v400Zm80-240v-80h160v80H560Zm0 160v-80h160v80H560Z" ],
+			700 => [ "0 -960 960 960", "M49-74v-781h462v160h400v621H49Zm111-111h240v-80H160v80Zm0-160h240v-80H160v80Zm0-160h240v-80H160v80Zm0-160h240v-80H160v80Zm320 480h320v-400H480v400Zm80-240v-80h160v80H560Zm0 160v-80h160v80H560Z" ],
+		};
+	}
+
+	public static function create(
+		int $size,
+		int $weight = 300,
+		string $fill = "#000"
+	): Dom {
+		[ $viewBox, $path ] = static::weight( $weight );
+
+		return (new static)
+			->add( Path::create(
+				$path
+			))
+			->props(
+				[
+					"xmlns" => "http://www.w3.org/2000/svg",
+					"viewBox" => "{$viewBox}",
+					"height" => "{$size}",
+					"width" => "{$size}",
+					"fill" => "{$fill}"
+				]
+			);
+	}
+}

@@ -1,0 +1,49 @@
+<?php
+
+namespace Websyspro\Elements\Shareds\List;
+
+use Websyspro\Elements\Shareds\Abstract\Dom;
+use Websyspro\Elements\Shareds\Enums\HtmlTag;
+use Websyspro\Elements\Shareds\Path;
+
+class IconStackedBarChart
+extends Dom
+{
+	public HtmlTag $htmlTag = HtmlTag::SVG;
+
+	private static function weight(
+		int $weight
+	): array {
+		return match( $weight ){
+			100 => [ "0 -960 960 960", "M212-212v-400h108v400H212Zm0-428v-108h108v108H212Zm215 428-1-292h108v292H427Zm-1-320v-108h108v108H426Zm214 320v-183h108v183H640Zm0-211v-108h108v108H640Z" ],
+			200 => [ "0 -960 960 960", "M200-200v-409.23h120V-200H200Zm0-440v-120h120v120H200Zm220.77 440L420-498.46h120V-200H420.77ZM420-529.23v-120h120v120H420ZM640-200v-186.92h120V-200H640Zm0-217.69v-120h120v120H640Z" ],
+			300 => [ "0 -960 960 960", "M180-180v-424.62h140V-180H180Zm0-460v-140h140v140H180Zm230.39 460L410-489.23h140V-180H410.39ZM410-524.62v-139.99h140v139.99H410ZM640-180v-193.46h140V-180H640Zm0-228.85v-140h140v140H640Z" ],
+			400 => [ "0 -960 960 960", "M160-160v-440h160v440H160Zm0-480v-160h160v160H160Zm240 480v-320h160v320H400Zm0-360v-160h160v160H400Zm240 360v-200h160v200H640Zm0-240v-160h160v160H640Z" ],
+			500 => [ "0 -960 960 960", "M151.87-151.87v-448.85h167.17v448.85H151.87Zm0-489.09v-167.17h167.17v167.17H151.87Zm244.54 489.09v-327.65h167.18v327.65H396.41Zm0-368.13v-167.17h167.18V-520H396.41Zm244.55 368.13v-207.17h167.17v207.17H640.96Zm0-247.41v-167.18h167.17v167.18H640.96Z" ],
+			600 => [ "0 -960 960 960", "M140.78-140.78V-601.7h176.96v460.92H140.78Zm0-501.48v-176.96h176.96v176.96H140.78Zm250.74 501.48v-338.09h176.96v338.09H391.52Zm0-379.22v-176.96h176.96V-520H391.52Zm250.74 379.22v-216.96h176.96v216.96H642.26Zm0-257.52v-176.96h176.96v176.96H642.26Z" ],
+			700 => [ "0 -960 960 960", "M126-126v-477h190v477H126Zm0-518v-190h190v190H126Zm259 518v-352h190v352H385Zm0-394v-190h190v190H385Zm259 394v-230h190v230H644Zm0-271v-190h190v190H644Z" ],
+		};
+	}
+
+	public static function create(
+		int $size,
+		int $weight = 300,
+		string $fill = "#000"
+	): Dom {
+		[ $viewBox, $path ] = static::weight( $weight );
+
+		return (new static)
+			->add( Path::create(
+				$path
+			))
+			->props(
+				[
+					"xmlns" => "http://www.w3.org/2000/svg",
+					"viewBox" => "{$viewBox}",
+					"height" => "{$size}",
+					"width" => "{$size}",
+					"fill" => "{$fill}"
+				]
+			);
+	}
+}

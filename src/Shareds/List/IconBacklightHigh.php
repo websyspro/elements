@@ -1,0 +1,49 @@
+<?php
+
+namespace Websyspro\Elements\Shareds\List;
+
+use Websyspro\Elements\Shareds\Abstract\Dom;
+use Websyspro\Elements\Shareds\Enums\HtmlTag;
+use Websyspro\Elements\Shareds\Path;
+
+class IconBacklightHigh
+extends Dom
+{
+	public HtmlTag $htmlTag = HtmlTag::SVG;
+
+	private static function weight(
+		int $weight
+	): array {
+		return match( $weight ){
+			100 => [ "0 -960 960 960", "M72-386v-28h128v28H72Zm200-202-92-93 19-19 92 93-19 19Zm34 296v-68h348v68H306Zm160-388v-168h28v168h-28Zm220 91-19-20 93-91 19 20-93 91Zm74 203v-28h128v28H760Z" ],
+			200 => [ "0 -960 960 960", "M64.62-380v-40H200v40H64.62Zm203.23-203.85L171-681.46l27.54-27.77 96.84 97.85-27.53 27.53ZM300-280v-80h360v80H300Zm160-400v-175.38h40V-680h-40Zm230.62 95.38-27.54-28.3L760.69-709l27.77 28.31-97.84 96.07ZM760-380v-40h135.38v40H760Z" ],
+			300 => [ "0 -960 960 960", "M52.31-370v-60H200v60H52.31Zm208.61-206.92L156-682.23l41.77-42.38 104.92 105.92-41.77 41.77ZM290-260v-100h380v100H290Zm160-420v-187.69h60V-680h-60Zm248.31 102.69-41.77-42.15L761.85-724l42.38 42.15-105.92 104.54ZM760-370v-60h147.69v60H760Z" ],
+			400 => [ "0 -960 960 960", "M40-360v-80h160v80H40Zm214-210L141-683l56-57 113 114-56 56Zm26 330v-120h400v120H280Zm160-440v-200h80v200h-80Zm266 110-56-56 113-113 57 56-114 113Zm54 210v-80h160v80H760Z" ],
+			500 => [ "0 -960 960 960", "M34.5-360v-91h171v91h-171ZM254-567.61 132.63-688.98l63.89-64.65L317.89-631.5 254-567.61ZM274.5-229v-131h411v131h-411Zm160-451v-211h91v211h-91ZM706-567.37l-63.65-64.13 121.13-121.37 64.41 64.13L706-567.37ZM754.5-360v-91h171v91h-171Z" ],
+			600 => [ "0 -960 960 960", "M27-360v-106h186v106H27Zm227-204.35L121.22-697.13l74.65-75.09L328.65-639 254-564.35ZM267-214v-146h426v146H267Zm160-466v-226h106v226H427Zm279 116.22L631.91-639l132.22-132.78 74.52 75.21L706-563.78ZM747-360v-106h186v106H747Z" ],
+			700 => [ "0 -960 960 960", "M17-360v-126h206v126H17Zm237-200L106-708l89-89 148 148-89 89Zm3 366v-166h446v166H257Zm160-486v-246h126v246H417Zm289 121-88-90 147-148 88 90-147 148Zm31 199v-126h206v126H737Z" ],
+		};
+	}
+
+	public static function create(
+		int $size,
+		int $weight = 300,
+		string $fill = "#000"
+	): Dom {
+		[ $viewBox, $path ] = static::weight( $weight );
+
+		return (new static)
+			->add( Path::create(
+				$path
+			))
+			->props(
+				[
+					"xmlns" => "http://www.w3.org/2000/svg",
+					"viewBox" => "{$viewBox}",
+					"height" => "{$size}",
+					"width" => "{$size}",
+					"fill" => "{$fill}"
+				]
+			);
+	}
+}

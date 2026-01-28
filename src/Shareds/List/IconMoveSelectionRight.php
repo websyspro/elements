@@ -1,0 +1,49 @@
+<?php
+
+namespace Websyspro\Elements\Shareds\List;
+
+use Websyspro\Elements\Shareds\Abstract\Dom;
+use Websyspro\Elements\Shareds\Enums\HtmlTag;
+use Websyspro\Elements\Shareds\Path;
+
+class IconMoveSelectionRight
+extends Dom
+{
+	public HtmlTag $htmlTag = HtmlTag::SVG;
+
+	private static function weight(
+		int $weight
+	): array {
+		return match( $weight ){
+			100 => [ "0 -960 960 960", "M448-290v-380h380v380H448Zm28-28h324v-324H476v324Zm-186 28v-40h40v40h-40Zm0-340v-40h40v40h-40ZM132-290v-40h40v40h-40Zm0-170v-40h40v40h-40Zm0-170v-40h40v40h-40Zm506 150Z" ],
+			200 => [ "0 -960 960 960", "M436.92-278.46v-403.08H840v403.08H436.92Zm40-40H800v-323.08H476.92v323.08Zm-198.46 40v-49.23h49.23v49.23h-49.23Zm0-353.85v-49.23h49.23v49.23h-49.23ZM120-278.46v-49.23h49.23v49.23H120Zm0-176.92v-49.24h49.23v49.24H120Zm0-176.93v-49.23h49.23v49.23H120ZM638.46-480Z" ],
+			300 => [ "0 -960 960 960", "M418.46-259.23v-441.54H860v441.54H418.46Zm60-60H800v-321.54H478.46v321.54Zm-219.23 60v-64.62h64.62v64.62h-64.62Zm0-376.92v-64.62h64.62v64.62h-64.62ZM100-259.23v-64.62h64.62v64.62H100Zm0-188.46v-64.62h64.62v64.62H100Zm0-188.46v-64.62h64.62v64.62H100ZM639.23-480Z" ],
+			400 => [ "0 -960 960 960", "M400-240v-480h480v480H400Zm80-80h320v-320H480v320Zm-240 80v-80h80v80h-80Zm0-400v-80h80v80h-80ZM80-240v-80h80v80H80Zm0-200v-80h80v80H80Zm0-200v-80h80v80H80Zm560 160Z" ],
+			500 => [ "0 -960 960 960", "M394.74-233.07v-493.39h493.39v493.39H394.74Zm91-91h311.39v-311.39H485.74v311.39Zm-252.44 91v-91h91v91h-91Zm0-402.39v-91h91v91h-91ZM71.87-233.07v-91h91v91h-91Zm0-201.19v-91h91v91h-91Zm0-201.2v-91h91v91h-91Zm569.56 155.7Z" ],
+			600 => [ "0 -960 960 960", "M387.56-223.61v-511.65h511.66v511.65H387.56Zm106.01-106h299.65v-299.65H493.57v299.65Zm-269.4 106v-106h106v106h-106Zm0-405.65v-106h106v106h-106ZM60.78-223.61v-106h106v106h-106Zm0-202.82v-106.01h106v106.01h-106Zm0-202.83v-106h106v106h-106Zm582.61 149.83Z" ],
+			700 => [ "0 -960 960 960", "M378-211v-536h536v536H378Zm126-126h284v-284H504v284ZM212-211v-126h126v126H212Zm0-410v-126h126v126H212ZM46-211v-126h126v126H46Zm0-205v-126h126v126H46Zm0-205v-126h126v126H46Zm600 142Z" ],
+		};
+	}
+
+	public static function create(
+		int $size,
+		int $weight = 300,
+		string $fill = "#000"
+	): Dom {
+		[ $viewBox, $path ] = static::weight( $weight );
+
+		return (new static)
+			->add( Path::create(
+				$path
+			))
+			->props(
+				[
+					"xmlns" => "http://www.w3.org/2000/svg",
+					"viewBox" => "{$viewBox}",
+					"height" => "{$size}",
+					"width" => "{$size}",
+					"fill" => "{$fill}"
+				]
+			);
+	}
+}

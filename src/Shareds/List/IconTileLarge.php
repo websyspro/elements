@@ -1,0 +1,49 @@
+<?php
+
+namespace Websyspro\Elements\Shareds\List;
+
+use Websyspro\Elements\Shareds\Abstract\Dom;
+use Websyspro\Elements\Shareds\Enums\HtmlTag;
+use Websyspro\Elements\Shareds\Path;
+
+class IconTileLarge
+extends Dom
+{
+	public HtmlTag $htmlTag = HtmlTag::SVG;
+
+	private static function weight(
+		int $weight
+	): array {
+		return match( $weight ){
+			100 => [ "0 -960 960 960", "M172-172v-185h257v185H172Zm357 0v-185h259v185H529Zm-329-28h201v-129H200v129Zm357 0h203v-129H557v129ZM172-457v-331h616v331H172Zm129 192Zm358 0Z" ],
+			200 => [ "0 -960 960 960", "M160-160v-197.69h271.54V-160H160Zm366.92 0v-197.69H800V-160H526.92ZM200-200h191.54v-117.69H200V-200Zm366.92 0H760v-117.69H566.92V-200ZM160-453.08V-800h640v346.92H160Zm136.15 193.85Zm367.7 0Z" ],
+			300 => [ "0 -960 960 960", "M140-140v-218.85h295.77V-140H140Zm383.46 0v-218.85H820V-140H523.46ZM200-200h175.77v-98.85H200V-200Zm383.46 0H760v-98.85H583.46V-200ZM140-446.54V-820h680v373.46H140Zm148.08 196.92Zm383.84 0Z" ],
+			400 => [ "0 -960 960 960", "M120-120v-240h320v240H120Zm400 0v-240h320v240H520Zm-320-80h160v-80H200v80Zm400 0h160v-80H600v80ZM120-440v-400h720v400H120Zm160 200Zm400 0Z" ],
+			500 => [ "0 -960 960 960", "M111.87-111.87v-257.22H440v257.22H111.87Zm408.13 0v-257.22h328.13v257.22H520Zm-317.13-91H349v-75.22H202.87v75.22Zm408.13 0h146.13v-75.22H611v75.22ZM111.87-449.09v-399.04h736.26v399.04H111.87Zm164.06 208.61Zm408.14 0Z" ],
+			600 => [ "0 -960 960 960", "M100.78-100.78v-280.7H440v280.7H100.78Zm419.22 0v-280.7h339.22v280.7H520Zm-313.22-106H334v-68.7H206.78v68.7Zm419.22 0h127.22v-68.7H626v68.7Zm-525.22-254.7v-397.74h758.44v397.74H100.78Zm169.61 220.35Zm419.22 0Z" ],
+			700 => [ "0 -960 960 960", "M86-86v-312h354v312H86Zm434 0v-312h354v312H520ZM212-212h102v-60H212v60Zm434 0h102v-60H646v60ZM86-478v-396h788v396H86Zm177 236Zm434 0Z" ],
+		};
+	}
+
+	public static function create(
+		int $size,
+		int $weight = 300,
+		string $fill = "#000"
+	): Dom {
+		[ $viewBox, $path ] = static::weight( $weight );
+
+		return (new static)
+			->add( Path::create(
+				$path
+			))
+			->props(
+				[
+					"xmlns" => "http://www.w3.org/2000/svg",
+					"viewBox" => "{$viewBox}",
+					"height" => "{$size}",
+					"width" => "{$size}",
+					"fill" => "{$fill}"
+				]
+			);
+	}
+}

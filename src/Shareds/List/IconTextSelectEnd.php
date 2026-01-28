@@ -1,0 +1,49 @@
+<?php
+
+namespace Websyspro\Elements\Shareds\List;
+
+use Websyspro\Elements\Shareds\Abstract\Dom;
+use Websyspro\Elements\Shareds\Enums\HtmlTag;
+use Websyspro\Elements\Shareds\Path;
+
+class IconTextSelectEnd
+extends Dom
+{
+	public HtmlTag $htmlTag = HtmlTag::SVG;
+
+	private static function weight(
+		int $weight
+	): array {
+		return match( $weight ){
+			100 => [ "0 -960 960 960", "M460-748v-40h40v40h-40Zm0 576v-40h40v40h-40ZM316-748v-40h40v40h-40Zm0 576v-40h40v40h-40ZM172-748v-40h40v40h-40Zm0 144v-40h40v40h-40Zm0 144v-40h40v40h-40Zm0 144v-40h40v40h-40Zm0 144v-40h40v40h-40Zm428 0v-28h80v-560h-80v-28h188v28h-80v560h80v28H600Z" ],
+			200 => [ "0 -960 960 960", "M455.38-750.77V-800h49.24v49.23h-49.24Zm0 590.77v-49.23h49.24V-160h-49.24ZM307.69-750.77V-800h49.23v49.23h-49.23Zm0 590.77v-49.23h49.23V-160h-49.23ZM160-750.77V-800h49.23v49.23H160Zm0 147.69v-49.23h49.23v49.23H160Zm0 147.7v-49.24h49.23v49.24H160Zm0 147.69v-49.23h49.23v49.23H160ZM160-160v-49.23h49.23V-160H160Zm440 0v-40h80v-560h-80v-40h200v40h-80v560h80v40H600Z" ],
+			300 => [ "0 -960 960 960", "M447.69-755.38V-820h64.62v64.62h-64.62Zm0 615.38v-64.62h64.62V-140h-64.62ZM293.85-755.38V-820h64.61v64.62h-64.61Zm0 615.38v-64.62h64.61V-140h-64.61ZM140-755.38V-820h64.62v64.62H140Zm0 153.84v-64.61h64.62v64.61H140Zm0 153.85v-64.62h64.62v64.62H140Zm0 153.84v-64.61h64.62v64.61H140ZM140-140v-64.62h64.62V-140H140Zm460 0v-60h80v-560h-80v-60h220v60h-80v560h80v60H600Z" ],
+			400 => [ "0 -960 960 960", "M440-760v-80h80v80h-80Zm0 640v-80h80v80h-80ZM280-760v-80h80v80h-80Zm0 640v-80h80v80h-80ZM120-760v-80h80v80h-80Zm0 160v-80h80v80h-80Zm0 160v-80h80v80h-80Zm0 160v-80h80v80h-80Zm0 160v-80h80v80h-80Zm480 0v-80h80v-560h-80v-80h240v80h-80v560h80v80H600Z" ],
+			500 => [ "0 -960 960 960", "M434.5-757.13v-91h91v91h-91Zm0 645.26v-91h91v91h-91ZM273.07-757.13v-91h91v91h-91Zm0 645.26v-91h91v91h-91Zm-161.2-645.26v-91h91v91h-91Zm0 161.43v-91h91v91h-91Zm0 161.2v-91h91v91h-91Zm0 161.43v-91h91v91h-91Zm0 161.2v-91h91v91h-91Zm484.06 0v-91h80.48v-554.26h-80.48v-91h252.2v91h-80.72v554.26h80.72v91h-252.2Z" ],
+			600 => [ "0 -960 960 960", "M427-753.22v-106h106v106H427Zm0 652.44v-106h106v106H427ZM263.61-753.22v-106h106v106h-106Zm0 652.44v-106h106v106h-106ZM100.78-753.22v-106h106v106h-106Zm0 163.39v-106h106v106h-106Zm0 162.83v-106h106v106h-106Zm0 163.39v-106h106v106h-106Zm0 162.83v-106h106v106h-106Zm489.61 0v-106h81.13v-546.44h-81.13v-106h268.83v106h-81.7v546.44h81.7v106H590.39Z" ],
+			700 => [ "0 -960 960 960", "M417-748v-126h126v126H417Zm0 662v-126h126v126H417ZM251-748v-126h126v126H251Zm0 662v-126h126v126H251ZM86-748v-126h126v126H86Zm0 166v-126h126v126H86Zm0 165v-126h126v126H86Zm0 166v-126h126v126H86Zm0 165v-126h126v126H86Zm497 0v-126h82v-536h-82v-126h291v126h-83v536h83v126H583Z" ],
+		};
+	}
+
+	public static function create(
+		int $size,
+		int $weight = 300,
+		string $fill = "#000"
+	): Dom {
+		[ $viewBox, $path ] = static::weight( $weight );
+
+		return (new static)
+			->add( Path::create(
+				$path
+			))
+			->props(
+				[
+					"xmlns" => "http://www.w3.org/2000/svg",
+					"viewBox" => "{$viewBox}",
+					"height" => "{$size}",
+					"width" => "{$size}",
+					"fill" => "{$fill}"
+				]
+			);
+	}
+}

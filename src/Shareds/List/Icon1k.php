@@ -1,6 +1,6 @@
 <?php
 
-namespace Src\Shareds\List;
+namespace Websyspro\Elements\Shareds\List;
 
 use Websyspro\Elements\Shareds\Abstract\Dom;
 use Websyspro\Elements\Shareds\Enums\HtmlTag;

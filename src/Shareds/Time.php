@@ -10,7 +10,10 @@ class Time extends Dom
   public HtmlTag $htmlTag = HtmlTag::TIME;
 
   public static function create(
+    string $datetime
   ): Dom {
-    return new static;
+    return (new static)->props(
+      [ "datetime" => $datetime ]
+    );
   }   
 }

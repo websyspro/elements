@@ -32,6 +32,10 @@ class Dom
   public function add(
     object|array|string $child
   ): Dom {
+    if( $child instanceof Collection ){
+      $child = $child->all();
+    }
+
     $heList = Util::isArray( 
       $child
     );

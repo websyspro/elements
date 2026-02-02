@@ -118,6 +118,10 @@ class Dom
   ): string {
     return $this->childs->mapper(
       function(object|string $child){
+        if( Util::isNull( $child ) === true ){
+          return "";
+        }
+
         if( Util::isString( $child )){
           return $child;
         }

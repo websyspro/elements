@@ -117,7 +117,7 @@ class Dom
   public function childList(
   ): string {
     return $this->childs->mapper(
-      function(object|string $child){
+      function(object|string|null $child){
         if( Util::isNull( $child ) === true ){
           return "";
         }

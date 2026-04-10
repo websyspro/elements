@@ -33,7 +33,7 @@ class Dom
     object|array|string $child
   ): Dom {
     if( $child instanceof Collection ){
-      $child = $child->all();
+      $child = $child->toArray();
     }
 
     $heList = Util::isArray( 
@@ -85,7 +85,7 @@ class Dom
       fn(string $value, string $key) => Util::sprintFormat(
         "%s=\"%s\"", [ $key, $value ]
       )
-    )->;
+    )->toArray();
   }
 
   private function eventList(

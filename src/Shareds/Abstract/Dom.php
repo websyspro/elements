@@ -85,7 +85,7 @@ class Dom
       fn(string $value, string $key) => Util::sprintFormat(
         "%s=\"%s\"", [ $key, $value ]
       )
-    )->all();
+    )->;
   }
 
   private function eventList(
@@ -94,7 +94,7 @@ class Dom
       fn(string $event, string $key) => Util::sprintFormat(
         "on%s=\"%s\"", [ $key, $event ]
       )
-    )->all();
+    )->toArray();
   }
   
   private function styleList(

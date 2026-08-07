@@ -1,5 +1,6 @@
 {
   "name": "websyspro/elements",
+  "version": "1.0.4",
   "description": "PHP library for dynamic DOM element creation with support for attributes, nesting and HTML rendering",
   "minimum-stability": "dev",
   "prefer-stable": true,
@@ -8,11 +9,13 @@
   "autoload": {
     "psr-4": {
       "Websyspro\\Elements\\": "src/"
-    }   
+    },
+    "files": [
+      "src/helpers.php"
+    ]
   },
   "scripts": {
-    "git:push": "git add . && git commit -m \"Update components\" && git push origin HEAD",
-    "git:pull": "git pull origin main"
+    "publish": "php vendor/bin/publish"
   },
   "authors": [
     {
@@ -22,6 +25,7 @@
   ],
   "require": {
     "websyspro/commons": "dev-main",
-    "websyspro/devtools": "dev-main"
+    "websyspro/devtools": "dev-main",
+    "websyspro/package": "^1.0"
   }
 }

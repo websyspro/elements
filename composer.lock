@@ -4,49 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d9ba24c3784d0b3eefd9a3df1067cbbf",
+    "content-hash": "095e5219187c171911d9351e04482096",
     "packages": [
         {
-            "name": "websyspro/commons",
-            "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/websyspro/commons.git",
-                "reference": "a4df5ed9a02d0c39bfc828590470763f3145b698"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/websyspro/commons/zipball/a4df5ed9a02d0c39bfc828590470763f3145b698",
-                "reference": "a4df5ed9a02d0c39bfc828590470763f3145b698",
-                "shasum": ""
-            },
-            "default-branch": true,
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Websyspro\\Commons\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "websyspro",
-                    "email": "websyspro.services@gmail.com"
-                }
-            ],
-            "description": "Generic utility helpers for PHP components (arrays, files, strings, types, and identifiers).",
-            "support": {
-                "issues": "https://github.com/websyspro/commons/issues",
-                "source": "https://github.com/websyspro/commons/tree/main"
-            },
-            "time": "2026-05-10T12:47:10+00:00"
-        },
-        {
             "name": "websyspro/devtools",
-            "version": "dev-main",
+            "version": "1.0.130",
             "source": {
                 "type": "git",
                 "url": "https://github.com/websyspro/devtools.git",
@@ -63,7 +25,6 @@
                 "websyspro/package": "^1.0",
                 "websyspro/utils": "^1.0"
             },
-            "default-branch": true,
             "bin": [
                 "bin/server-restart",
                 "bin/browser-reload"
@@ -87,7 +48,7 @@
             "description": "Set of features for hot reloads during development",
             "support": {
                 "issues": "https://github.com/websyspro/devtools/issues",
-                "source": "https://github.com/websyspro/devtools/tree/main"
+                "source": "https://github.com/websyspro/devtools/tree/1.0.130"
             },
             "time": "2026-09-01T21:58:12+00:00"
         },
@@ -218,10 +179,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "websyspro/commons": 20,
-        "websyspro/devtools": 20
-    },
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {},

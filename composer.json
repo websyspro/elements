@@ -24,8 +24,8 @@
     }
   ],
   "require": {
-    "websyspro/commons": "dev-main",
-    "websyspro/devtools": "dev-main",
-    "websyspro/package": "^1.0"
+    "websyspro/package": "^1.0",
+    "websyspro/utils": "^1.0",
+    "websyspro/devtools": "^1.0"
   }
 }

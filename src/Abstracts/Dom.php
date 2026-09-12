@@ -113,6 +113,14 @@ class Dom
     );
   }
 
+  private function handlerType(
+  ): string {
+    return match($this->domType){
+      DomType::DOCTYPE => sprintf( "!%s", DomType::DOCTYPE->name ),
+        default => DomType::DOCTYPE->name
+    };
+  }
+
   public function get(
     array $props = []
   ): string {
@@ -123,13 +131,13 @@ class Dom
     ]);
 
     return $this->isCloseDom === IsCloseDom::Yes
-      ? ( empty($props) !== false 
-          ? "<{$this->domType->name} {$props}>{$this->handleChild()}</{$this->domType->name}>" 
-          : "<{$this->domType->name}>{$this->handleChild()}</{$this->domType->name}>"
+      ? ( empty($props) === false 
+          ? "<{$this->handlerType()} {$props}>{$this->handleChild()}</{$this->handlerType()}>" 
+          : "<{$this->handlerType()}>{$this->handleChild()}</{$this->handlerType()}>"
         )
-      : ( empty($props) !== false 
-          ? "<{$this->domType->name} {$props} />" 
-          : "<{$this->domType->name} />"
+      : ( empty($props) === false 
+          ? "<{$this->handlerType()} {$props} />" 
+          : "<{$this->handlerType()} />"
         );
   }
 }

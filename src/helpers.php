@@ -5,19 +5,19 @@ use Websyspro\Elements\Doms\Div;
 use Websyspro\Elements\Doms\DocType;
 
 function App(
-  mixed ...$childs
+  array $childs
 ): App {
   return new App($childs);
 }
 
 function DocType(
-  mixed ...$childs
+  array $childs
 ): DocType {
   return new DocType($childs);
 }
 
 function Div(
-  mixed ...$childs
+  array $childs
 ): Div {
   return new Div($childs);
 }

@@ -1,6 +1,6 @@
 {
   "name": "websyspro/elements",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "PHP library for dynamic DOM element creation with support for attributes, nesting and HTML rendering",
   "minimum-stability": "dev",
   "prefer-stable": true,
@@ -11,7 +11,7 @@
       "Websyspro\\Elements\\": "src/"
     },
     "files": [
-      "src/helpers.php"
+      "src/Helpers.php"
     ]
   },
   "scripts": {

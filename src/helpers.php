@@ -6,6 +6,7 @@ use Websyspro\Elements\Doms\Div;
 use Websyspro\Elements\Doms\DocType;
 use Websyspro\Elements\Doms\Head;
 use Websyspro\Elements\Doms\Html;
+use Websyspro\Elements\Doms\Meta;
 
 function App(
   mixed ...$childs
@@ -28,6 +29,12 @@ function Head(
   mixed ...$childs
 ): Head {
   return new Head($childs);
+}
+
+function Meta(
+  mixed ...$props
+): Meta {
+  return new Meta($props);
 }
 
 function Body(

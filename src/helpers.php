@@ -11,9 +11,8 @@ function App(
 }
 
 function DocType(
-  array $childs
 ): DocType {
-  return new DocType($childs);
+  return new DocType();
 }
 
 function Div(

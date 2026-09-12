@@ -77,7 +77,7 @@ class Dom
   }
 
   private function handlerStyles(
-    string $styles
+    string|null $styles = null
   ): array {
     $styles = implode( ";", array_map(
       fn( string $val, string $key ) => (

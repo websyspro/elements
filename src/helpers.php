@@ -5,8 +5,8 @@ use Websyspro\Elements\Doms\Div;
 use Websyspro\Elements\Doms\DocType;
 
 function App(
-  array $childs
-): App {
+  mixed ...$childs
+): mixed {
   return new App($childs);
 }
 
@@ -16,7 +16,7 @@ function DocType(
 }
 
 function Div(
-  array $childs
+  mixed ...$childs
 ): Div {
   return new Div($childs);
 }

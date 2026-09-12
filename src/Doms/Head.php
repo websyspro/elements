@@ -13,16 +13,16 @@ extends Dom
   public function __construct(
     private array $childs = []
   ){
-    parent::__construct([
-      ...$childs, ...[
-        new Meta([ 
-          "charset" => "UTF-8"
-        ]),
-        new Meta([
-          "name" => "viewport",
-          "content" => "width=device-width, initial-scale=1.0"
-        ])
-      ]
-    ]);
-  }   
+    parent::__construct(
+      $this->defaultChilds()
+    );
+  }
+  
+  private function defaultChilds(
+  ): array {
+    return [ ...$this->childs, ...[
+      new Meta([ "charset" => "UTF-8" ]),
+      new Meta([ "name" => "viewport", "content" => "width=device-width, initial-scale=1.0" ])
+    ]];
+  }
 }

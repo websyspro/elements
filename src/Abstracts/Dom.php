@@ -115,7 +115,7 @@ class Dom
 
   private function handlerType(
   ): string {
-    return DomType::DOCTYPE->name;
+    return DomType::DOCTYPE->value;
   }
 
   public function get(

@@ -10,8 +10,8 @@ use function sprintf;
 
 class Dom
 {
-  private DomType $domType = DomType::DIV;
-  private IsCloseDom $isCloseDom = IsCloseDom::Yes;
+  protected DomType $domType = DomType::DIV;
+  protected IsCloseDom $isCloseDom = IsCloseDom::Yes;
 
   public function __construct(
     private array $childs,
@@ -91,7 +91,9 @@ class Dom
   ): array {
     return array_map(
       fn( string $val, string $key ) => (
-        sprintf( "%s=\"%s\"", $key, $val )
+        is_numeric($key) === false 
+          ? sprintf( "%s=\"%s\"", $key, $val )
+          : sprintf( "%s", $key )
       ), $this->props, array_keys( $this->props )
     );
   }
@@ -109,7 +111,8 @@ class Dom
   }
 
   public function get(
-    array $props = []
+    string $get,
+    array $props = [],
   ): string {
     $props = implode( " ", [
       ...$this->handlerEvents(),

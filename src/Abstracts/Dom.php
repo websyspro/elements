@@ -72,7 +72,7 @@ class Dom
     return array_map(
       fn( string $val, string $key ) => (
         sprintf( "on%s=\"%s\"", $key, $val )
-      ), $this->props, array_keys( $this->props )
+      ), $this->events, array_keys( $this->events )
     );
   }
 
@@ -82,7 +82,7 @@ class Dom
       sprintf( "style=\"%s\"", implode( ";", array_map(
         fn( string $val, string $key ) => (
           sprintf( "%s:%s", $key, $val )
-        ), $this->props, array_keys( $this->props )
+        ), $this->styles, array_keys( $this->styles )
       )))
     ];
   }

@@ -14,10 +14,10 @@ class Dom
   protected IsCloseDom $isCloseDom = IsCloseDom::Yes;
 
   public function __construct(
-    public array $childs = [],
-    public array $events = [],
-    public array $styles = [],
-    public array $props  = []
+    private array $childs = [],
+    private array $events = [],
+    private array $styles = [],
+    private array $props  = []
   ){}
 
   public function add(

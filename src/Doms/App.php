@@ -12,7 +12,7 @@ extends Dom
   ){
     parent::__construct( $childs );
 
-    if( empty( $this->childs ) !== false ){
+    if( empty( $this->childs ) === false ){
       echo $this->get();
     }
   }

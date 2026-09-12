@@ -72,7 +72,7 @@ class Dom
     return array_map(
       fn( string $val, string $key ) => (
         sprintf( "on%s=\"%s\"", $key, $val )
-      ), $this->events, array_keys( $this->events )
+      ), $this->events ?? [], array_keys( $this->events ?? [])
     );
   }
 
@@ -82,7 +82,7 @@ class Dom
       sprintf( "style=\"%s\"", implode( ";", array_map(
         fn( string $val, string $key ) => (
           sprintf( "%s:%s", $key, $val )
-        ), $this->styles, array_keys( $this->styles )
+        ), $this->styles ?? [], array_keys( $this->styles ?? [])
       )))
     ];
   }
@@ -94,7 +94,7 @@ class Dom
         is_numeric($key) === false 
           ? sprintf( "%s=\"%s\"", $key, $val )
           : sprintf( "%s", $key )
-      ), $this->props, array_keys( $this->props )
+      ), $this->props ?? [], array_keys( $this->props ?? [])
     );
   }
 

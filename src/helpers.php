@@ -1,8 +1,11 @@
 <?php
 
 use Websyspro\Elements\Doms\App;
+use Websyspro\Elements\Doms\Body;
 use Websyspro\Elements\Doms\Div;
 use Websyspro\Elements\Doms\DocType;
+use Websyspro\Elements\Doms\Head;
+use Websyspro\Elements\Doms\Html;
 
 function App(
   mixed ...$childs
@@ -13,6 +16,24 @@ function App(
 function DocType(
 ): DocType {
   return new DocType();
+}
+
+function Html(
+  mixed ...$childs
+): Html {
+  return new Html($childs);
+}
+
+function Head(
+  mixed ...$childs
+): Head {
+  return new Head($childs);
+}
+
+function Body(
+  mixed ...$childs
+): Body {
+  return new Body($childs);
 }
 
 function Div(

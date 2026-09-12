@@ -3,6 +3,7 @@
 namespace Websyspro\Elements\Doms;
 
 use Websyspro\Elements\Abstracts\Dom;
+use function is_string;
 
 class App
 extends Dom
@@ -15,7 +16,7 @@ extends Dom
     );
 
     if( empty( $this->childs ) === false ){
-      print $this->get();
+      print $this->handleChild();
     }
   }
 
@@ -29,11 +30,5 @@ extends Dom
         ), $this->childs
       )
     );
-  }
-
-  public function get(
-    array $props = []
-  ): string {
-    return $this->handleChild();
   }
 }

@@ -5,7 +5,7 @@ namespace Websyspro\Elements\Enums;
 enum DomType: string
 {
   // Estrutura do documento
-  case DOCTYPE = '!DOCTYPE html';
+  case DOCTYPE = '!DOCTYPE';
   case HTML = 'html';
   case HEAD = 'head';
   case BODY = 'body';

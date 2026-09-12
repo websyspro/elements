@@ -77,23 +77,26 @@ class Dom
   }
 
   private function handlerStyles(
+    string $styles
   ): array {
-    return [
-      sprintf( "style=\"%s\"", implode( ";", array_map(
-        fn( string $val, string $key ) => (
-          sprintf( "%s:%s", $key, $val )
-        ), $this->styles ?? [], array_keys( $this->styles ?? [])
-      )))
+    $styles = implode( ";", array_map(
+      fn( string $val, string $key ) => (
+        sprintf( "%s:%s", $key, $val )
+      ), $this->styles ?? [], array_keys( $this->styles ?? [])
+    ));
+
+    return empty( $styles ) ? [] : [
+      sprintf( "style=\"%s\"", )
     ];
   }
   
   private function handlerProps(
   ): array {
     return array_map(
-      fn( string $val, string $key ) => (
+      fn( string $val, string|int $key ) => (
         is_numeric($key) === false 
           ? sprintf( "%s=\"%s\"", $key, $val )
-          : sprintf( "%s", $key )
+          : sprintf( "%s", $val )
       ), $this->props ?? [], array_keys( $this->props ?? [])
     );
   }

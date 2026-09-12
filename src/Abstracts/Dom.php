@@ -111,8 +111,7 @@ class Dom
   }
 
   public function get(
-    string $get,
-    array $props = [],
+    array $props = []
   ): string {
     $props = implode( " ", [
       ...$this->handlerEvents(),

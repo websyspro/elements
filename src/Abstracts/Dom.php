@@ -115,10 +115,7 @@ class Dom
 
   private function handlerType(
   ): string {
-    return match($this->domType){
-      DomType::DOCTYPE => sprintf( "!%s", DomType::DOCTYPE->name ),
-        default => DomType::DOCTYPE->name
-    };
+    return DomType::DOCTYPE->name;
   }
 
   public function get(

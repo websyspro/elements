@@ -14,10 +14,10 @@ class Dom
   protected IsCloseDom $isCloseDom = IsCloseDom::Yes;
 
   public function __construct(
-    private array $childs = [],
-    private array $events = [],
-    private array $styles = [],
-    private array $props  = []
+    public array $childs = [],
+    public array $events = [],
+    public array $styles = [],
+    public array $props  = []
   ){}
 
   public function add(
@@ -86,7 +86,7 @@ class Dom
     ));
 
     return empty( $styles ) ? [] : [
-      sprintf( "style=\"%s\"", )
+      sprintf( "style=\"%s\"", $styles )
     ];
   }
   
@@ -115,7 +115,7 @@ class Dom
 
   private function handlerType(
   ): string {
-    return DomType::DOCTYPE->value;
+    return $this->domType->value;
   }
 
   public function get(

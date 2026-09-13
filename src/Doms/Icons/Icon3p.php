@@ -8,7 +8,7 @@ use Websyspro\Elements\Doms\Icon;
 class Icon3p
 extends Icon
 {
-  private function handlerWeight(
+  protected function handlerWeight(
     IconWeight $iconWeight
   ): array {
     return match( $iconWeight->value ){

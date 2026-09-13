@@ -24,7 +24,7 @@ extends Dom
     );
   }
 
-  private function handlerWeight(
+  protected function handlerWeight(
     IconWeight $iconWeight
   ): array {
     return [];
@@ -32,9 +32,8 @@ extends Dom
 
   private function handlerSvg(
   ): array {
-    [ $this->viewBox, $this->path ] = $this->handlerWeight(
-      $this->iconSize
-    );
+    [ $this->viewBox, $this->path 
+    ] = $this->handlerWeight( $this->iconSize );
     
     return [
       new Svg(

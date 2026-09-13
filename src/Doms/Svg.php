@@ -19,8 +19,14 @@ extends Dom
     private array $fill = [ 0,0,0 ],
   ){
     parent::__construct(
-      [], [], [], $this->handlerProps()
+      $this->handlerPath(), [], [], 
+      $this->handlerProps()
     );
+  }
+
+  private function handlerPath(
+  ): array {
+    return [ new Path( $this->path )];
   }
 
   private function handlerPropsViewBox(

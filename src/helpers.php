@@ -9,7 +9,7 @@ use Websyspro\Elements\Doms\Html;
 use Websyspro\Elements\Doms\Icons\Icon3p;
 use Websyspro\Elements\Doms\StyleLink;
 use Websyspro\Elements\Doms\Meta;
-use Websyspro\Elements\Enums\IconWeight;
+use Websyspro\Elements\Enums\IconTypeWeight;
 
 function App(
   mixed ...$childs
@@ -61,7 +61,7 @@ function Div(
 function Icon3p(
   int $size,
   array $fill = [ 0,0,0 ],
-  IconWeight $iconSize = IconWeight::iw300
+  IconTypeWeight $iconTypeWeight = IconWeight::iw300
 ): Icon3p {
-  return new Icon3p($size, $fill, $iconSize);
+  return new Icon3p($size, $fill, $iconTypeWeight);
 }

@@ -61,7 +61,7 @@ function Div(
 function Icon3p(
   int $size,
   array $fill = [ 0,0,0 ],
-  IconTypeWeight $iconTypeWeight = IconWeight::iw300
+  IconTypeWeight $iconTypeWeight = IconTypeWeight::iw300
 ): Icon3p {
   return new Icon3p($size, $fill, $iconTypeWeight);
 }

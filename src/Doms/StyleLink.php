@@ -6,7 +6,7 @@ use Websyspro\Elements\Abstracts\Dom;
 use Websyspro\Elements\Enums\DomType;
 use Websyspro\Elements\Enums\IsCloseDom;
 
-class StyledLink
+class StyleLink
 extends Dom
 {
   protected DomType $domType = DomType::LINK;

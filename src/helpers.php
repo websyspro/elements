@@ -6,7 +6,7 @@ use Websyspro\Elements\Doms\Div;
 use Websyspro\Elements\Doms\DocType;
 use Websyspro\Elements\Doms\Head;
 use Websyspro\Elements\Doms\Html;
-use Websyspro\Elements\Doms\StyledLink;
+use Websyspro\Elements\Doms\StyleLink;
 use Websyspro\Elements\Doms\Meta;
 
 function App(
@@ -38,10 +38,10 @@ function Meta(
   return new Meta($props);
 }
 
-function StyledLink(
+function StyleLink(
   string $href
-): StyledLink {
-  return new StyledLink($href);
+): StyleLink {
+  return new StyleLink($href);
 }
 
 function Body(

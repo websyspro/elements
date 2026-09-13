@@ -2,9 +2,9 @@
 
 namespace Websyspro\Elements\Doms;
 
-use Websyspro\Elements\Doms\Svg;
-use Websyspro\Elements\Enums\IconWeight;
+use Websyspro\Elements\Enums\IconTypeWeight;
 use Websyspro\Elements\Abstracts\Dom;
+use Websyspro\Elements\Doms\Svg;
 use function get_class;
 
 class Icon
@@ -16,7 +16,7 @@ extends Dom
   public function __construct(
     private int $size,
     private array $fill = [ 0,0,0 ],
-    private IconWeight $iconSize = IconWeight::iw300
+    private IconTypeWeight $iconTypeWeight = IconTypeWeight::iw300
   ){
     parent::__construct(
       $this->handlerSvg(), [], [], 
@@ -25,7 +25,7 @@ extends Dom
   }
 
   protected function handlerWeight(
-    IconWeight $iconWeight
+    IconTypeWeight $iconTypeWeight
   ): array {
     return [];
   }
@@ -33,7 +33,7 @@ extends Dom
   protected function handlerSvg(
   ): array {
     [ $this->viewBox, $this->path 
-    ] = $this->handlerWeight( $this->iconSize );
+    ] = $this->handlerWeight( $this->iconTypeWeight );
     
     return [
       new Svg(

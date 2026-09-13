@@ -1,0 +1,24 @@
+<?php
+
+namespace Websyspro\Elements\Doms\Icons;
+
+use Websyspro\Elements\Enums\IconTypeWeight;
+use Websyspro\Elements\Doms\Icon;
+
+class IconEqual
+extends Icon
+{
+	protected function handlerWeight(
+		IconTypeWeight $iconWeightType
+	): array {
+		return match( $iconWeightType->value ){
+			100 => [ "0 -960 960 960", "M212-332v-68h536v68H212Zm0-228v-68h536v68H212Z" ],
+			200 => [ "0 -960 960 960", "M200-320v-80h560v80H200Zm0-240v-80h560v80H200Z" ],
+			300 => [ "0 -960 960 960", "M180-300v-100h600v100H180Zm0-260v-100h600v100H180Z" ],
+			400 => [ "0 -960 960 960", "M160-280v-120h640v120H160Zm0-280v-120h640v120H160Z" ],
+			500 => [ "0 -960 960 960", "M151.87-274.5v-131h656.26v131H151.87Zm0-280v-131h656.26v131H151.87Z" ],
+			600 => [ "0 -960 960 960", "M140.78-267v-146h678.44v146H140.78Zm0-280v-146h678.44v146H140.78Z" ],
+			700 => [ "0 -960 960 960", "M126-257v-166h708v166H126Zm0-280v-166h708v166H126Z" ]
+		};
+	}
+}

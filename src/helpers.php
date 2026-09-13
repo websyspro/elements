@@ -6,6 +6,7 @@ use Websyspro\Elements\Doms\Div;
 use Websyspro\Elements\Doms\DocType;
 use Websyspro\Elements\Doms\Head;
 use Websyspro\Elements\Doms\Html;
+use Websyspro\Elements\Doms\Icons\Icon3p;
 use Websyspro\Elements\Doms\StyleLink;
 use Websyspro\Elements\Doms\Meta;
 
@@ -54,4 +55,10 @@ function Div(
   mixed ...$childs
 ): Div {
   return new Div($childs);
+}
+
+function Icon3p(
+  int $size
+): Icon3p {
+  return new Icon3p($size);
 }

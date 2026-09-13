@@ -13,8 +13,6 @@ extends Dom
   public function __construct(
     private array $childs = []
   ){
-    parent::__construct(
-      $childs, [], [ "margin" => "0px" ]
-    );
+    parent::__construct( $childs );
   }   
 }

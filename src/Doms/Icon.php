@@ -30,7 +30,7 @@ extends Dom
     return [];
   }
 
-  private function handlerSvg(
+  protected function handlerSvg(
   ): array {
     [ $this->viewBox, $this->path 
     ] = $this->handlerWeight( $this->iconSize );
@@ -45,7 +45,7 @@ extends Dom
     ];
   }
 
-  private function handlerClass(
+  protected function handlerClass(
   ): array {
     return [ "class" => get_class( $this )];
   }

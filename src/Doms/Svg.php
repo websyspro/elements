@@ -24,22 +24,22 @@ extends Dom
     );
   }
 
-  private function handlerPath(
+  protected function handlerPath(
   ): array {
     return [ new Path( $this->path )];
   }
 
-  private function handlerPropsViewBox(
+  protected function handlerPropsViewBox(
   ): string {
     return $this->viewBox;
   }  
 
-  private function handlerPropsSize(
+  protected function handlerPropsSize(
   ): string {
     return $this->size;
   }
 
-  private function handlerPropsFill(
+  protected function handlerPropsFill(
   ): string {
     if( empty( $this->fill )){
       $this->fill = [ 0,0,0 ];
@@ -52,7 +52,7 @@ extends Dom
     });
   }  
   
-  private function handlerProps(
+  protected function handlerProps(
   ): array {
     return [
       "xmlns" => "http://www.w3.org/2000/svg",

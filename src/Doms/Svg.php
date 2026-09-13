@@ -29,6 +29,11 @@ extends Dom
     return [ new Path( $this->path )];
   }
 
+  protected function handlerPropsXmlns(
+  ): string {
+    return "http://www.w3.org/2000/svg";
+  }  
+
   protected function handlerPropsViewBox(
   ): string {
     return $this->viewBox;
@@ -55,11 +60,11 @@ extends Dom
   protected function handlerProps(
   ): array {
     return [
-      "xmlns" => "http://www.w3.org/2000/svg",
-      "viewBox" => "{$this->handlerPropsViewBox()}",
-      "height" => "{$this->handlerPropsSize()}",
-      "width" => "{$this->handlerPropsSize()}",
-      "fill" => "{$this->handlerPropsFill()}"
+      "xmlns" => $this->handlerPropsXmlns(),
+      "viewBox" => $this->handlerPropsViewBox(),
+      "height" => $this->handlerPropsSize(),
+      "width" => $this->handlerPropsSize(),
+      "fill" => $this->handlerPropsFill()
     ];
   }
 }

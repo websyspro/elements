@@ -6,6 +6,7 @@ use Websyspro\Elements\Doms\Div;
 use Websyspro\Elements\Doms\DocType;
 use Websyspro\Elements\Doms\Head;
 use Websyspro\Elements\Doms\Html;
+use Websyspro\Elements\Doms\Link;
 use Websyspro\Elements\Doms\Meta;
 
 function App(
@@ -35,6 +36,12 @@ function Meta(
   mixed ...$props
 ): Meta {
   return new Meta($props);
+}
+
+function StyledLink(
+  string $href
+): Link {
+  return new Link($href);
 }
 
 function Body(

@@ -6,10 +6,10 @@ use Websyspro\Elements\Abstracts\Dom;
 use Websyspro\Elements\Enums\DomType;
 use Websyspro\Elements\Enums\IsCloseDom;
 
-class StyledHref
+class StyledLink
 extends Dom
 {
-  protected DomType $domType = DomType::DOCTYPE;
+  protected DomType $domType = DomType::LINK;
   protected IsCloseDom $isCloseDom = IsCloseDom::No;
 
   public function __construct(

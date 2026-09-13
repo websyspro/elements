@@ -2,8 +2,8 @@
 
 namespace Websyspro\Elements\Doms\Icons;
 
-use Websyspro\Elements\Doms\Icon;
 use Websyspro\Elements\Enums\IconTypeWeight;
+use Websyspro\Elements\Doms\Icon;
 
 class Icon6kPlus
 extends Icon

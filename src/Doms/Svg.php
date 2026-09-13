@@ -10,7 +10,7 @@ use function sizeof;
 class Svg
 extends Dom
 {
-  protected DomType $domType = DomType::META;
+  protected DomType $domType = DomType::SVG;
 
   public function __construct(
     private int $size,

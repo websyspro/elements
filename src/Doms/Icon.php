@@ -33,8 +33,10 @@ extends Dom
 
   private function handlerSvg(
   ): array {
+    $iconPaths = require __DIR__ . "/Icons/{$this->iconList->name}.php";
+
     [ $this->viewBox, $this->path 
-    ] = require __DIR__ . "/Icons/{$this->iconList->name}";
+    ] = $iconPaths[ $this->iconWeight ];
     
     return [
       new Svg(

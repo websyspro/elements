@@ -3,7 +3,7 @@
 $recursiveIteratorIterators = (
   new RecursiveIteratorIterator(
     new RecursiveDirectoryIterator( 
-      "D:/Nova pasta (2)/elements/src/Shareds/List", FilesystemIterator::SKIP_DOTS
+      "C:/equipe-ninja-geral/framework/elements/src/Shareds/List", FilesystemIterator::SKIP_DOTS
     )
   )
 );
@@ -44,7 +44,7 @@ function loadIcon(
 
 foreach ($recursiveIteratorIterators as $iterator){
   file_put_contents( 
-    "D:/defaults/elements/src/Doms/Icons/{$iterator->getFilename()}", loadIcon(
+    "D:/25-Composer/elements/src/Doms/Icons/{$iterator->getFilename()}", loadIcon(
       $iterator->getPathname(), $iterator->getFilename()
     )
   );
@@ -62,7 +62,7 @@ foreach ($recursiveIteratorIterators as $iterator){
           "\tarray \$fill = [ 0,0,0 ],",
           "\tIconTypeWeight \$iconTypeWeight = IconTypeWeight::iw300",
         "): %s {",
-          "\treturn %s(\$size, \$fill, \$iconTypeWeight);",
+          "\treturn new %s(\$size, \$fill, \$iconTypeWeight);",
         "}\r\n\r\n",
       ]
     ),

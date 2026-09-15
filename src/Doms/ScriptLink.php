@@ -6,10 +6,10 @@ use Websyspro\Elements\Enums\IsCloseDom;
 use Websyspro\Elements\Abstracts\Dom;
 use Websyspro\Elements\Enums\DomType;
 
-class StyleLink
+class ScriptLink
 extends Dom
 {
-  protected DomType $domType = DomType::LINK;
+  protected DomType $domType = DomType::SCRIPT;
   protected IsCloseDom $isCloseDom = IsCloseDom::No;
 
   public function __construct(
@@ -17,8 +17,7 @@ extends Dom
   ){
     parent::__construct(
       [], [], [], [
-        "rel" => "stylesheet",
-        "href" => $this->handlerReference( $href )
+        "src" => $this->handlerReference( $href )
       ]
     );
   }

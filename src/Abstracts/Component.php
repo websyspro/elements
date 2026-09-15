@@ -3,13 +3,18 @@
 namespace Websyspro\Elements\Abstracts;
 
 use Websyspro\DevTools\Interfaces\DevTools;
-use ReflectionClass;
 use Websyspro\Elements\Doms\Head;
+use ReflectionClass;
 use function defined;
 
 abstract class Component 
 extends Dom
 {
+  public function __construct(){
+    parent::__construct();
+    $this->handlerStaticFiles();
+  }
+
   private function handlerDevTools(
     DevTools|null $devTools = null
   ): DevTools|null {
@@ -82,12 +87,5 @@ extends Dom
         Head::addStaticChild( StyleLink( $handlerStaticStyle ));
       }
     }
-  }
-
-  public function get(
-    array $props = []
-  ): string {
-    $this->handlerStaticFiles();
-    return parent::get( $props );
   }
 }

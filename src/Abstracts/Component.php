@@ -12,11 +12,22 @@ extends Dom
 {
   private string $shortName;
 
-  public function __construct(){
+  public function __construct(
+    private array $childs = [],
+    private array $events = [],
+    private array $styles = [],
+    private array $props  = []    
+  ){
     $this->handlerStaticFiles();
+
+    /*
+     * Execute Construct Parent
+     * */
     parent::__construct(
-      [], [], [], [
-        "class" => $this->shortName
+      $childs, 
+      $events,
+      $styles, [ ...$props, 
+        ...[ "class" => $this->shortName ]
       ]
     );
   }

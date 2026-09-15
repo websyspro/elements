@@ -76,7 +76,7 @@ extends Dom
        * Add DOM in HEAD
        */
       if( $this->handlerStaticPath( $baseIncludes, $handlerStaticScript )){
-        // Head::addStaticChild( StyleLink( $handlerStaticScript ));
+        Head::addStaticChild( ScriptLink( $handlerStaticScript ));
       }
 
       

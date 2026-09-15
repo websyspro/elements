@@ -1,6 +1,7 @@
 <?php
 
 use Websyspro\Elements\Doms\Icon;
+use Websyspro\Elements\Doms\ScriptLink;
 use Websyspro\Elements\Doms\StyleLink;
 use Websyspro\Elements\Doms\DocType;
 use Websyspro\Elements\Doms\Body;
@@ -44,6 +45,12 @@ function StyleLink(
   string $href
 ): StyleLink {
   return new StyleLink($href);
+}
+
+function ScriptLink(
+  string $href
+): ScriptLink {
+  return new ScriptLink($href);
 }
 
 function Body(

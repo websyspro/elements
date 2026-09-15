@@ -19,7 +19,7 @@ extends Dom
     parent::__construct(
       [], [], [], [
         "rel" => "stylesheet",
-        "href" => $this->defaultHost( $href )
+        "href" => $this->handlerReference( $href )
       ]
     );
   }
@@ -35,23 +35,18 @@ extends Dom
   }
 
   private function handlerReference(
+    string $href
   ): string {
     [ "SERVER_NAME" => $serverName,
       "SERVER_PORT" => $serverPort
     ] = $_SERVER;
 
+    $href = ltrim(
+      $href, "/"
+    );
+
     return $serverPort === "80" 
-      ? $this->handlerProtocol( "{$serverName}" )
-      : $this->handlerProtocol( "{$serverName}:{$serverPort}" );
-  }  
-
-  private function defaultHost(
-    string $href    
-  ): string {
-    [ "HTTP_REFERER" => $httpReferer
-    ] = $_SERVER; 
-
-    return sprintf( "{$httpReferer}/%s", ltrim( $href, "/" ));
+      ? $this->handlerProtocol( "{$serverName}/{$href}" )
+      : $this->handlerProtocol( "{$serverName}:{$serverPort}/{$href}" );
   }
-
 }

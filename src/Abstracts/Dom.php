@@ -8,7 +8,7 @@ use function is_string;
 use function is_array;
 use function sprintf;
 
-class Dom
+abstract class Dom
 {
   protected DomType $domType = DomType::DIV;
   protected IsCloseDom $isCloseDom = IsCloseDom::Yes;
@@ -119,7 +119,6 @@ class Dom
   }
 
   public function get(
-    array $props = []
   ): string {
     $props = implode( " ", [
       ...$this->handlerEvents(),

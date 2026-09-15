@@ -9,6 +9,7 @@ extends Dom
   ): void {}
 
   public function get(
+    array $props = []
   ): string {
     $this->handlerStaticFiles();
     return parent::get();

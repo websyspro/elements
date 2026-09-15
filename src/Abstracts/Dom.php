@@ -119,6 +119,7 @@ abstract class Dom
   }
 
   public function get(
+    array $props = []
   ): string {
     $props = implode( " ", [
       ...$this->handlerEvents(),

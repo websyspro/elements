@@ -10,9 +10,15 @@ use function defined;
 abstract class Component 
 extends Dom
 {
+  private string $shortName;
+
   public function __construct(){
-    parent::__construct();
     $this->handlerStaticFiles();
+    parent::__construct(
+      [], [], [], [
+        "class" => $this->shortName
+      ]
+    );
   }
 
   private function handlerDevTools(
@@ -61,7 +67,7 @@ extends Dom
         $baseIncludes, $this->handlerDirectory()
       );
 
-      [ $shortName ] = array_reverse(
+      [ $this->shortName ] = array_reverse(
         explode( "\\", get_class( $this ) )
       );
 
@@ -69,14 +75,14 @@ extends Dom
        * Define staticScripts
        * Define staticStyles
        * */
-      $handlerStaticScript = "{$baseReference}/{$shortName}.js";
-      $handlerStaticStyle = "{$baseReference}/{$shortName}.css";
+      $handlerStaticScript = "{$baseReference}/{$this->shortName}.js";
+      $handlerStaticStyle = "{$baseReference}/{$this->shortName}.css";
 
       /*
        * Add DOM in HEAD
        */
       if( $this->handlerStaticPath( $baseIncludes, $handlerStaticScript )){
-        Head::addStaticChild( ScriptLink( $handlerStaticScript ));
+        //Head::addStaticChild( ScriptLink( $handlerStaticScript ));
       }
 
       

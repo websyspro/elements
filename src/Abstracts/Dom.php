@@ -101,7 +101,7 @@ abstract class Dom
     );
   }
 
-  private function handleChild(
+  public function handlerChild(
   ): string {
     return implode( 
       "", array_map(
@@ -119,7 +119,6 @@ abstract class Dom
   }
 
   public function get(
-    array $props = []
   ): string {
     $props = implode( " ", [
       ...$this->handlerEvents(),
@@ -129,8 +128,8 @@ abstract class Dom
 
     return $this->isCloseDom === IsCloseDom::Yes
       ? ( empty($props) === false 
-          ? "<{$this->handlerType()} {$props}>{$this->handleChild()}</{$this->handlerType()}>" 
-          : "<{$this->handlerType()}>{$this->handleChild()}</{$this->handlerType()}>"
+          ? "<{$this->handlerType()} {$props}>{$this->handlerChild()}</{$this->handlerType()}>" 
+          : "<{$this->handlerType()}>{$this->handlerChild()}</{$this->handlerType()}>"
         )
       : ( empty($props) === false 
           ? "<{$this->handlerType()} {$props} />" 

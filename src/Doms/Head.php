@@ -4,25 +4,49 @@ namespace Websyspro\Elements\Doms;
 
 use Websyspro\Elements\Abstracts\Dom;
 use Websyspro\Elements\Enums\DomType;
+use function is_string;
 
 class Head
 extends Dom
 {
   protected DomType $domType = DomType::HEAD;
 
+  protected static array $statics = [];
+
   public function __construct(
     private array $childs = []
   ){
-    parent::__construct(
-      $this->defaultChilds()
-    );
+    parent::__construct();
+  }
+
+  public static function addStaticChild(
+    Dom $static
+  ): void {
+    static::$statics = [
+      ...static::$statics, 
+      ...[ $static ]
+    ];
   }
   
   private function defaultChilds(
   ): array {
-    return [ ...$this->childs, ...[
-      new Meta([ "charset" => "UTF-8" ]),
-      new Meta([ "name" => "viewport", "content" => "width=device-width, initial-scale=1.0" ])
-    ]];
+    return [ 
+      ...[
+        new Meta([ "charset" => "UTF-8" ]),
+        new Meta([ "name" => "viewport", "content" => "width=device-width, initial-scale=1.0" ])
+      ], ...$this->childs, ...static::$statics 
+    ];
   }
+
+  public function handlerChild(
+  ): string {
+    return implode( 
+      "", array_map(
+        fn( object|string $child ) => (
+          is_string( $child ) 
+            ? $child : $child->get()
+        ), $this->defaultChilds()
+      )
+    );
+  }  
 }

@@ -5,7 +5,6 @@ namespace Websyspro\Elements\Doms;
 use Websyspro\Elements\Enums\IsCloseDom;
 use Websyspro\Elements\Abstracts\Dom;
 use Websyspro\Elements\Enums\DomType;
-use function sprintf;
 
 class StyleLink
 extends Dom
@@ -31,7 +30,9 @@ extends Dom
       "/", $_SERVER[ "SERVER_PROTOCOL" ]
     );
 
-    return "{$protocol}://{$reference}";
+    return mb_strtolower(
+      "{$protocol}://{$reference}"
+    );
   }
 
   private function handlerReference(

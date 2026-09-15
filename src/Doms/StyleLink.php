@@ -24,6 +24,27 @@ extends Dom
     );
   }
 
+  private function handlerProtocol(
+    string $reference
+  ): string {
+    [ $protocol ] = explode(
+      "/", $_SERVER[ "SERVER_PROTOCOL" ]
+    );
+
+    return "{$protocol}://{$reference}";
+  }
+
+  private function handlerReference(
+  ): string {
+    [ "SERVER_NAME" => $serverName,
+      "SERVER_PORT" => $serverPort
+    ] = $_SERVER;
+
+    return $serverPort === "80" 
+      ? $this->handlerProtocol( "{$serverName}" )
+      : $this->handlerProtocol( "{$serverName}:{$serverPort}" );
+  }  
+
   private function defaultHost(
     string $href    
   ): string {

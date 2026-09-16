@@ -10,7 +10,7 @@ class ScriptLink
 extends Dom
 {
   protected DomType $domType = DomType::SCRIPT;
-  protected IsCloseDom $isCloseDom = IsCloseDom::No;
+  protected IsCloseDom $isCloseDom = IsCloseDom::Yes;
 
   public function __construct(
     private string $href

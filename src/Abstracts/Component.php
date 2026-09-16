@@ -6,6 +6,7 @@ use Websyspro\DevTools\Interfaces\DevTools;
 use Websyspro\Elements\Doms\Head;
 use ReflectionClass;
 use function defined;
+use function sprintf;
 
 abstract class Component 
 extends Dom
@@ -66,8 +67,10 @@ extends Dom
   private function handlerStaticPath(
     string $baseIncludes,
     string $staticFile
-  ): string {
-    return sprintf( "%s%s%s", DevTools_Base_Dir, $baseIncludes, $staticFile );
+  ): bool {
+    return file_exists(
+      sprintf( "%s%s%s", DevTools_Base_Dir, $baseIncludes, $staticFile )
+    );
   }
 
   private function handlerStaticFiles(
@@ -93,7 +96,7 @@ extends Dom
        * Add DOM in HEAD
        */
       if( $this->handlerStaticPath( $baseIncludes, $handlerStaticScript )){
-        //Head::addStaticChild( ScriptLink( $handlerStaticScript ));
+        // Head::addStaticChild( ScriptLink( $handlerStaticScript ));
       }
 
       

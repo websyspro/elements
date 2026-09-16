@@ -13,7 +13,7 @@ extends Dom
   protected IsCloseDom $isCloseDom = IsCloseDom::No;
 
   public function __construct(
-    private string $href
+    public string $href
   ){
     parent::__construct(
       [], [], [], [

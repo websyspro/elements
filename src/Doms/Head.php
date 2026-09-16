@@ -19,9 +19,62 @@ extends Dom
     parent::__construct();
   }
 
+  private static function addStaticStyleChild(
+    Dom $static
+  ): void {
+    if( $static instanceof StyleLink ){
+      $isAddStatic = array_filter(
+        static::$statics, function( mixed $item ) use( $static ) {
+          if( $item instanceof StyleLink ){
+            return $item->href === $static->href;
+          }
+
+          return false;
+        }    
+      );
+
+      if( empty($isAddStatic) === false ){
+        return ;
+      }
+    }
+  }
+
   public static function addStaticChild(
     Dom $static
   ): void {
+    if( $static instanceof StyleLink || $static instanceof ScriptLink ){
+      if( $static instanceof StyleLink ){
+        $isAddStatic = array_filter(
+          static::$statics, function( mixed $item ) use( $static ) {
+            if( $item instanceof StyleLink ){
+              return $item->href === $static->href;
+            }
+
+            return false;
+          }    
+        );
+
+        if( empty($isAddStatic) === false ){
+          return ;
+        }
+      } else
+      if( $static instanceof ScriptLink ){
+        $isAddStatic = array_filter(
+          static::$statics, function( mixed $item ) use( $static ) {
+            if( $item instanceof ScriptLink ){
+              return $item->src === $static->src;
+            }
+
+            return false;
+          }    
+        );
+
+        if( empty($isAddStatic) === false ){
+          return ;
+        }        
+      }
+    }
+
     static::$statics = [
       ...static::$statics, 
       ...[ $static ]

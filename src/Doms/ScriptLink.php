@@ -13,11 +13,11 @@ extends Dom
   protected IsCloseDom $isCloseDom = IsCloseDom::Yes;
 
   public function __construct(
-    private string $href
+    public string $src
   ){
     parent::__construct(
       [], [], [], [
-        "src" => $this->handlerReference( $href )
+        "src" => $this->handlerReference( $src )
       ]
     );
   }

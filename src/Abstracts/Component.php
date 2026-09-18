@@ -36,15 +36,15 @@ extends Dom
   private function handlerDevTools(
     DevTools|null $devTools = null
   ): DevTools|null {
-    if( defined( "DevTools_Base_Dir" ) === false ){
+    if( defined( "BASE_DIR" ) === false ){
       return $devTools;
     }
 
-    if( file_exists( DevTools_Base_Dir . "devTools.php" ) === false ){
+    if( file_exists( BASE_DIR . "devTools.php" ) === false ){
       return $devTools;
     }
 
-    $devTools = require DevTools_Base_Dir . "devTools.php";
+    $devTools = require BASE_DIR . "devTools.php";
     if( $devTools instanceof DevTools ){
       return $devTools;
     } else return $devTools;
@@ -69,7 +69,7 @@ extends Dom
     string $staticFile
   ): bool {
     return file_exists(
-      sprintf( "%s%s%s", DevTools_Base_Dir, $baseIncludes, $staticFile )
+      sprintf( "%s%s%s", BASE_DIR, $baseIncludes, $staticFile )
     );
   }
 

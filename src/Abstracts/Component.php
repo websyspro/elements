@@ -40,11 +40,11 @@ extends Dom
       return $devTools;
     }
 
-    if( file_exists( BASE_DIR . "devTools.php" ) === false ){
+    if( file_exists( BASE_DIR . "dev-tools.php" ) === false ){
       return $devTools;
     }
 
-    $devTools = require BASE_DIR . "devTools.php";
+    $devTools = require BASE_DIR . "dev-tools.php";
     if( $devTools instanceof DevTools ){
       return $devTools;
     } else return $devTools;
